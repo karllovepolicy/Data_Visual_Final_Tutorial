@@ -57,7 +57,7 @@ plot3 = plot2 + labs(title=titleText,
 
 plot4 = plot3 + geom_text(aes(y = pct , 
                             label = paste0(round(pct,2), '%')),
-                        hjust=-.1,
+                        hjust=0,
                         size = 3)
 plot5 = plot4 + scale_y_continuous(breaks=c(0,10,25, 40,55),
                                  limits = c(0, 55), 
