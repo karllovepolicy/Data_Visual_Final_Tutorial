@@ -1,0 +1,68 @@
+---
+title: "Data Visual Report"
+author: "Group 4: Aishe Memetova, Haotian Bu, Jon White, Vitalii Zakhozhyi"
+date: "February 20, 2019"
+output: html_document
+---
+Using the Seattle Sound Transit Data of October-November 2015, we will try to see where Link Light Rail riders are coming from.
+
+
+#Intro: Loading Data and Describing the Data
+
+Loading neccessary packages, calling dataset and preparing it for analysis
+```{r}
+mydata1=read.csv("https://raw.githubusercontent.com/jwhite00/Group-Project-Data-Vis/master/Data/newLinkData.csv")
+library(ggplot2)
+library(scales)
+```
+
+```{r}
+names(mydata1)
+```
+
+#Table Prep:
+```{r freqTab_abs}
+absoluteT=table(mydata1$faretype,exclude = '#NULL!')
+ToPlot=prop.table(absoluteT)
+ToPlot=ToPlot*100
+plotLabels=paste0(round(ToPlot,2),'%') 
+
+paletteHereNew=c('gray') 
+tableFreq=as.data.frame(ToPlot)
+names(tableFreq)=c("faretype","pct")
+tableFreq0 = tableFreq[order(-tableFreq$pct),]
+```
+
+
+#Univariate GGPlot
+```{r bar_gg}
+titleText='How are Link Riders Paying for Trips?'
+sourceText='Source: Sound Transit 2015 Onboard Survey Data'
+
+base= ggplot(data = tableFreq0, 
+             aes(x = reorder(faretype,pct),
+                 y = pct)) 
+plot1 = base + geom_bar(fill ="gray",
+                        stat = 'identity') 
+
+plot2 = plot1 + theme(panel.background = element_rect(fill = "white",
+                                                    colour = "grey50"),
+                    plot.caption = element_text(hjust = 0), 
+                    plot.title = element_text(hjust = 0.5))
+
+plot3 = plot2 + labs(title=titleText, 
+                     x ='Fare Type', 
+                     y = '% of Riders',
+                     caption = sourceText)
+
+plot4 = plot3 + geom_text(aes(y = pct , 
+                            label = paste0(round(pct,2), '%')),
+                        hjust=-.1,
+                        size = 3)
+plot5 = plot4 + scale_y_continuous(breaks=c(0,10,25, 40,55),
+                                 limits = c(0, 55), 
+                                 labels=scales::unit_format(suffix = '%')) 
+plot6=plot5 + coord_flip()
+
+plot6
+```
