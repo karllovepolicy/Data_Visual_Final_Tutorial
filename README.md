@@ -2,7 +2,7 @@
 
 **Final Project:** Analysis of the .......
 
-![Image of Group](https://raw.githubusercontent.com/vzakhozhyi/599-A-Final-Project/master/teamPhoto.png)
+![Image of Group](https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/GroupPhoto.png)
 
 **Group "Data Wizards":**
 * Haotian Bu
