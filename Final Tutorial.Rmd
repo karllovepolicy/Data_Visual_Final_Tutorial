@@ -135,11 +135,13 @@ bars6
 
 ##################### MULTIVAR #################### 
 
-#Multi-variable plot
 
 In this section, we will explore the realationship among the probability of using cash for this trip, whether people have vehicles, the purpose of this trip, and frequency of using public transportation. 
 
-First, we need to make our dataset ready for regression. Following code select dependent variables and explanatory variables, then set the right format for each variable.
+
+**Preparing a dataset for regression** 
+
+First, we need to make our dataset ready for regression. At the following code we select dependent variables and explanatory variables, then set the right format for each of the variables:
 
 ```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
 #change names of explanatory variables
@@ -160,7 +162,9 @@ mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)
 head(mydata2,5)
 ```
 
-Here we use logit model since our dependent variable is a binary variable. Our reference group is people whose purpose of this trip is home-based non-work trip and don't have vehicles in home.
+**Using the logit model** 
+
+Here we use logit model since our dependent variable is a binary variable. Our reference group is people whose purpose of this trip is home-based non-work trip and don't have vehicles at home.
 ```{r logit regression, message=FALSE, warning=FALSE}
 library(dotwhisker)
 library(broom)
@@ -180,8 +184,8 @@ model3 = tidy(mylogit3) %>%   # we save the result as a tidy object and...
 summary(mylogit3)
 ```
 
+**Comparing three models**
 
-Comparison among three models:
 ```{r compare different models}
 allModels=rbind(model1, model2, model3)
 
@@ -192,7 +196,7 @@ dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype
   theme_bw()
 ```
 
-From plot above, we can see that compared with reference group, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
+From the plot above, we can see that compared with reference group, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
 The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is non-significant. 
 
 
