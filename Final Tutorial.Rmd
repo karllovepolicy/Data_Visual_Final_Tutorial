@@ -14,7 +14,7 @@ Using the Seattle Sound Transit Data of October-November 2015, we will try to an
 
 **Loading neccessary packages, calling dataset and preparing it for analysis**
 
-Loading Data and Describing the Data
+First we need to call the libraries to be able to use the packages 
 
 ```{r linkdata, results='hide', warning=FALSE, message=FALSE}
 library(ggplot2)
@@ -22,12 +22,17 @@ library(scales)
 library(magrittr)
 library(dplyr)
 
+
+```
+Then we need to call the data we want to analyze. In our case we call the csv file
+
+```{r linkdata, results='hide', warning=FALSE, message=FALSE}
 linkdata <- read.csv("https://raw.githubusercontent.com/jwhite00/Group-Project-Data-Vis/master/Data/newLinkData.csv", stringsAsFactors=FALSE)
 ```
 
 **Finalizing the data frame for ggplot**
 
-Getting rid of missing values, calculating frequences, and subsetting
+We will need to get rid of missing values so that they do not distort our analysis. Then we will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
 
 ```{r clean}
 linkdata_clean <- linkdata %>%
@@ -43,12 +48,13 @@ ft_freq_df_ord=ft_freq_df[order(-ft_freq_df$pct), ]
 
 **Building a bar plot using ggplot**
 
+Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash. 
 ```{r barplot}
 cols <- ifelse(ft_freq_df_ord$faretype == "Cash", "red","gray50")
 
 base = ggplot(ft_freq_df_ord, aes(faretype, pct))
 ft_plot1 = base + geom_bar(stat="identity", fill=cols, width = 0.75)
-ft_plot2 = ft_plot1 + labs(title='Do riders still use cash to pay a transit fare in Seattle?',
+ft_plot2 = ft_plot1 + labs(title='Do riders still use cash to pay a transit fare in Seattle?', #to label the graph 
                            x ='Type of fare',
                            y = 'Percentage of riders',
                            caption = 'Source: Sound Transit 2015 Onboard Survey Data')
@@ -77,6 +83,8 @@ Now, we will try to answer what type of fare is the most common given different 
 
 **Cleaning the data and creating the proportion table**
 
+We will first need to clean the data so that there are no missing values
+
 ```{r linkdataclean}
 linkdata_clean <- linkdata %>%
   filter(faretype != "#NULL!") %>%
@@ -89,6 +97,8 @@ linkincomefare=table(linkdata_clean$faretype, linkdata_clean$purpose)%>%
 ```
 
 **Creating the dataframe for building the plot**
+
+Same as with the barplot, we will need to create a data frame
 
 ```{r dflink}
 dflink=as.data.frame(linkincomefare)
@@ -124,6 +134,66 @@ bars6
 
 
 ##################### MULTIVAR #################### 
+
+#Multi-variable plot
+
+In this section, we will explore the realationship among the probability of using cash for this trip, whether people have vehicles, the purpose of this trip, and frequency of using public transportation. 
+
+First, we need to make our dataset ready for regression. Following code select dependent variables and explanatory variables, then set the right format for each variable.
+
+```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
+#change names of explanatory variables
+library(dplyr)
+mydata1 <- rename(mydata1,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean')
+
+# transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
+mydata1$vehicle <- as.numeric(mydata1$vehicle)-1
+mydata1$number_of_trips <- as.numeric(mydata1$number_of_trips)-1
+
+# subset, select needed variables:
+mydata2 <- mydata1 %>% mutate(cashlove = ifelse(faretype=="Cash", 1, 0), vehicle = ifelse(vehicle>0, 1, 0)) %>% select(cashlove, purpose, number_of_trips, vehicle) %>% filter(purpose != "#NULL!")
+# set the correct type for explanatory variables
+mydata2$cashlove <- factor(mydata2$cashlove)
+mydata2$vehicle <- factor(mydata2$vehicle)
+mydata2$purpose <- factor(mydata2$purpose) #reset the level of variable "purpose"
+mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)
+head(mydata2,5)
+```
+
+Here we use logit model since our dependent variable is a binary variable. Our reference group is people whose purpose of this trip is home-based non-work trip and don't have vehicles in home.
+```{r logit regression, message=FALSE, warning=FALSE}
+library(dotwhisker)
+library(broom)
+#just use purpose as explantary variable
+mylogit1 <- glm(cashlove ~ purpose, data = mydata2, family = "binomial")
+model1 = tidy(mylogit1) %>%   # we save the result as a tidy object and...
+    mutate(model = "Model 1")
+#use purpose and number of trips
+mylogit2 <- glm(cashlove ~ purpose + number_of_trips, data = mydata2, family = "binomial")
+model2 = tidy(mylogit2) %>%   # we save the result as a tidy object and...
+    mutate(model = "Model 2")
+#use all three explanatory varibales
+mylogit3 <- glm(cashlove ~ purpose + number_of_trips + vehicle, data = mydata2, family = "binomial")
+model3 = tidy(mylogit3) %>%   # we save the result as a tidy object and...
+    mutate(model = "Model 3")
+
+summary(mylogit3)
+```
+
+
+Comparison among three models:
+```{r compare different models}
+allModels=rbind(model1, model2, model3)
+
+dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
+  xlab("Coefficient Estimate") + 
+  ylab("") +
+  ggtitle("Predicting probability of using cash") +
+  theme_bw()
+```
+
+From plot above, we can see that compared with reference group, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
+The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is non-significant. 
 
 
 
