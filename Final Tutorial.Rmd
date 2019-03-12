@@ -1,7 +1,10 @@
 ---
 title: "DataVis Class: Final Project Report"
 author: "Group 'Data Wizards': Aishe Memetova, Haotian Bu, Jon White, Vitalii Zakhozhyi"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    theme: unitedhtml_document
 ---
 <h1 align="center" style="color:blue">Exploring cash use as a transit fare payment in Seattle</h1>
 
@@ -24,7 +27,7 @@ library(dplyr)
 Then we need to call the data we want to analyze. In our case we call the csv file
 
 ```{r import data, results='hide', warning=FALSE, message=FALSE}
-linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv", stringsAsFactors=FALSE)
+linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/Final_Data.csv", stringsAsFactors=FALSE)
 ```
 
 **Finalizing the data frame for ggplot**
