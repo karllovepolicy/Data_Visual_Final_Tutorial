@@ -16,17 +16,14 @@ Using the Seattle Sound Transit Data of October-November 2015, we will try to an
 
 First we need to call the libraries to be able to use the packages 
 
-```{r linkdata, results='hide', warning=FALSE, message=FALSE}
+```{r load library, results='hide', warning=FALSE, message=FALSE}
 library(ggplot2)
 library(scales)
-library(magrittr)
 library(dplyr)
-
-
 ```
 Then we need to call the data we want to analyze. In our case we call the csv file
 
-```{r linkdata, results='hide', warning=FALSE, message=FALSE}
+```{r import data, results='hide', warning=FALSE, message=FALSE}
 linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv", stringsAsFactors=FALSE)
 ```
 
