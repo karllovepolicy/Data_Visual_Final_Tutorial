@@ -27,14 +27,14 @@ library(dplyr)
 Then we need to call the data we want to analyze. In our case we call the csv file
 
 ```{r linkdata, results='hide', warning=FALSE, message=FALSE}
-linkdata <- read.csv("https://raw.githubusercontent.com/jwhite00/Group-Project-Data-Vis/master/Data/newLinkData.csv", stringsAsFactors=FALSE)
+linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv", stringsAsFactors=FALSE)
 ```
 
 **Finalizing the data frame for ggplot**
 
 We will need to get rid of missing values so that they do not distort our analysis. Then we will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
 
-```{r clean}
+```{r clean, warning=FALSE, message=FALSE}
 linkdata_clean <- linkdata %>%
   filter(faretype != "#NULL!")
 
@@ -146,7 +146,7 @@ First, we need to make our dataset ready for regression. At the following code w
 ```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
 #change names of explanatory variables
 library(dplyr)
-mydata1 <- rename(mydata1,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean')
+mydata1 <- rename(linkdata,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean')
 
 # transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
 mydata1$vehicle <- as.numeric(mydata1$vehicle)-1
