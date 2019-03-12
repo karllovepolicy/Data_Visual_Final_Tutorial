@@ -16,5 +16,5 @@ The purpose of the Project is to analyse .....
 
 **In this repo you can find:**
 
-* The final [report](https://evansdatascience.github.io/basicFinal_VISUAL/)
+* The final [report](https://htmlpreview.github.io/?https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/blob/master/Final_Tutorial.html)
 * The [data](https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv) used for the project.
