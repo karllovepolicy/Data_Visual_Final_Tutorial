@@ -243,14 +243,10 @@ ft_freq_df
 
 Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash.
 ```{r barplot for faretype}
-#ifelse() command use the same order as it looks in dataframe excute 
-#cols <- ifelse(ft_freq_df$faretype == "Cash", "red","gray50")
+
 
 #set the specific color for cash
 cashasred <- scale_fill_manual(values=c("Cash" = "Red","Free"="gray50","Other"="gray50","Train Ticket, Day Pass"="gray50","ORCA day pass"="gray50","Train Ticket, One Way"="gray50","U-PASS ORCA"="gray50","ORCA e-purse"="gray50","ORCA, as pass"="gray50"))
-
-#something wrong with color, fix now
-#faretypeColors <- scale_fill_manual(values = c("Cash" = "red"))
 
 base = ggplot(ft_freq_df, aes(x=reorder(faretype, pct), y=pct, fill=faretype))
 ft_plot1 = base + geom_bar(stat="identity", width = 0.75) + cashasred
@@ -316,14 +312,13 @@ dfFarePurpose
 **Building the faretype VS. Purpose plot**
 
 ```{r barplotfarepurpose}
-#ifelse() command use the same order as it looks in dataframe excute 
-#cols2 <- ifelse(dfFarePurpose$Faretype == "Cash", "red","gray50")
+
 
 base  = ggplot(dfFarePurpose, aes(x = reorder(Faretype, Percent), y = Percent, fill=Faretype))
 bars1 = base + geom_bar(stat = "identity")+cashasred
 bars2 = bars1 + facet_wrap( ~ Purpose ,nrow = 1)
 bars3 = bars2 + coord_flip() + 
-                scale_y_continuous(limits=c(0,75),
+                scale_y_continuous(limits=c(0,80),
                                   labels=scales::unit_format(suffix = '%'))
 bars4 = bars3 + geom_text(aes(y = Percent,
                                   label = paste0(round(Percent,1), '%')), 
@@ -341,6 +336,7 @@ bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
                       axis.title.x = element_text(size = 11, hjust = 0.5, vjust = -1.25))
 bars6
 ```
+
 As we can see from the barplot, cash is more likely to be used for non-home based trips and for home based non-work trips. It makes sense, given the fact that people can use cash for one-time trip or they are not living in the area.
 
 Lets do the same with the income variable.
