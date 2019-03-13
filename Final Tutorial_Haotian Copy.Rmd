@@ -1,11 +1,11 @@
 
 # Exploring cash use as a transit fare payment in Seattle
-**Author: "Group 'Data Wizards': Aishe Memetova, Haotian Bu, Jon White, Vitalii Zakhozhyi"**
+##Author: "Group 'Data Wizards': Aishe Memetova, Haotian Bu, Jon White, Vitalii Zakhozhyi"**
 
 <center><img src="https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/GroupPhoto.png" width="1000"></center>
 
 
-[project Repo](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial)
+[Project Repo](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial)
 
 _____
 
@@ -93,6 +93,7 @@ unique(linkdata$vehicle)
 ```{r number of trips}
 unique(linkdata$number_of_trips)
 ```
+
 
 ```{r get ride of missing values, warning=FALSE, message=FALSE}
 mydata1 <- linkdata %>%
