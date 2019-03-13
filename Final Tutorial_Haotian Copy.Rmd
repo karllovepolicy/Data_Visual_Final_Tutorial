@@ -40,7 +40,7 @@ library(dplyr)
 Then we need to call the data we want to analyze. In our case we call the csv file
 
 ```{r import data, results='hide', warning=FALSE, message=FALSE}
-linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/Final_Data.csv", stringsAsFactors=FALSE)
+linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/OriginalData.csv", stringsAsFactors=FALSE)
 str(linkdata)
 ```
 

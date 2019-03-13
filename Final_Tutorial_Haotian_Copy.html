@@ -214,7 +214,7 @@ $(document).ready(function () {
 library(scales)
 library(dplyr)</code></pre>
 <p>Then we need to call the data we want to analyze. In our case we call the csv file</p>
-<pre class="r"><code>linkdata &lt;- read.csv(&quot;https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/Final_Data.csv&quot;, stringsAsFactors=FALSE)
+<pre class="r"><code>linkdata &lt;- read.csv(&quot;https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/OriginalData.csv&quot;, stringsAsFactors=FALSE)
 str(linkdata)</code></pre>
 <pre class="r"><code>#change names of explanatory variables
 linkdata &lt;- rename(linkdata,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean', &quot;income&quot;=&quot;hhincome&quot;)
@@ -286,8 +286,9 @@ mydata2$cashlove &lt;- factor(mydata2$cashlove)
 # set the correct type for explanatory variables
 #reset the level of variable &quot;purpose&quot;
 mydata2$purpose &lt;- factor(mydata2$purpose) 
-#from cha to factor
+#from cha to factor, set right level for factor
 mydata2$income &lt;- factor(mydata2$income) 
+#mydata2$income &lt;- factor(mydata2$income, levels=rev(levels(sizes)))
 #from num to factor
 mydata2$vehicle &lt;- factor(mydata2$vehicle)
 #from cha to numeric
@@ -308,7 +309,7 @@ head(mydata2,5)</code></pre>
 ## 5              30</code></pre>
 <pre class="r"><code># transform explanatory varibles from factor to numeric, add &quot;-1&quot; in command because Factors in R are represented internally as integers and the first factor is 1.</code></pre>
 <p>Format of variables are right, we are good to go!</p>
-<pre class="r"><code>#write.csv(mydata2, file = &quot;FinalData.csv&quot;)</code></pre>
+<pre class="r"><code>write.csv(mydata2, file = &quot;FinalData.csv&quot;)</code></pre>
 <p><a id="part2"></a></p>
 </div>
 <div id="question-1-is-cash-still-used-as-payment-for-transit" class="section level1">
