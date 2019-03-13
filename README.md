@@ -1,4 +1,7 @@
-# Final Project: Exploring cash use as a transit fare payment type in the Greater Seattle Area
+<center>
+<# Final Project: Exploring cash use as a transit fare payment type in the Greater Seattle Area>
+</center>
+
 ## Course: PUBPOL 599 B Visual Analytics for Policy and Management - Winter 2019
 
 ## "Data Wizards" Group:
