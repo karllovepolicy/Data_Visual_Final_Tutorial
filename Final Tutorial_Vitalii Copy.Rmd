@@ -30,15 +30,70 @@ Then we need to call the data we want to analyze. In our case we call the csv fi
 linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/Final_Data.csv", stringsAsFactors=FALSE)
 ```
 
+
+```{r}
+str(linkdata)
+```
+
+link
+
+```{r}
+unique(linkdata$hhincome)
+```
+
+
+```{r}
+linkdata_new <- linkdata %>% 
+  mutate(hhincome = recode(hhincome, 'Under 12000' = "Under $12,000", '12000-15999' = "$12,000-$15,999",'16,000-$19,999' = "$16,000-$19,999")) 
+```
+
+```{r}
+unique(linkdata_new$hhincome)
+```
+
+Delete #NULL
+
+```{r}
+unique(linkdata$faretype)
+```
+
+
+
+```{r}
+unique(linkdata$purpose)
+```
+
+%Delete #NULL
+
+```{r}
+unique(linkdata$hhveh_clean)
+```
+
+%Delete #NULL
+
+```{r}
+unique(linkdata$oneway_all_clean)
+```
+
+%Delete #NULL
+
+```{r}
+unique(linkdata$oneway_all_clean)
+```
+
+
 **Finalizing the data frame for ggplot**
 
 We will need to get rid of missing values so that they do not distort our analysis. Then we will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
 
 ```{r clean, warning=FALSE, message=FALSE}
-linkdata_clean <- linkdata %>%
+linkdata_clean <- linkdata_new %>%
   filter(faretype != "#NULL!") %>%
   filter(purpose != "#NULL!") %>% 
-  filter(hhincome != "#NULL!")
+  filter(hhincome != "#NULL!") %>%
+  filter(hhvec_clean != "#NULL") %>%
+  filter(oneway_all_clean != "#NULL")
+  
 
 absol_ft=table(linkdata_clean$faretype, exclude = 'nothing')
 names(absol_ft)[2]='Other'
