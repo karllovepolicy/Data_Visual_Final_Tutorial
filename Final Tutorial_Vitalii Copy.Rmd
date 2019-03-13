@@ -51,6 +51,7 @@ Introduction and Data Summary
 
 Our group is interested in exploring the cash use as transit fare payment method in the Greater Seattle area.
 
+The research is drawn from the assumption that the paying transit fare in cash decreases the efficiency of the transportation system. Cash is not efficient as payment method for both riders and transport service providers. From the riders' perspective, everytime the rider uses cash, they need to have exact amount of money to pay at the entrance, which definitely adds some complexity for some riders. From the service provider's perspetive, using cash increases the wait time and can cause delays in the schedule.     
 
 Sound transit requested this research to find out to what extent cash is still used in the Greater Seattle area. They would be also interested what population will be more likely to use cash for transit fare payment.
 
@@ -274,9 +275,9 @@ ft_plot6 = ft_plot5 + theme(panel.background = element_rect(fill = "white", colo
 ft_plot6
 ```
 
+From the plot, we can see that almost 5% of the population were using cash to pay transit fare. Generally speaking, it is not a big percentage. For example, the percent of different types of ORCA cards/payments varies from 1.54% (ORCA day pass) to 57.5% (ORCA as pass).   In total, ORCA payment were almost 90 % of all payments.  
 
-
-#Question 2: Who is using cash?
+If the goal is to reduce the payments with cash, current stake of 5% seems like a good result. There is still a room for improvement. Therefore, It is interesting to know who are those people who still use cash, what are their income, what purposes of their trips, etc. 
 
 Now, we will try to answer what type of fare is the most common given different purpose of trips and different income groups.
 
@@ -323,6 +324,10 @@ bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
 bars6
 ```
 
+As we can see from the barplot, cash is more likely to be used for non-home based trips and for home based non-work trips. It makes sense, given the fact that people can use cash for one-time trip or they are not living in the area.
+
+Lets do the same with the income variable.
+
 **Cleaning the data and creating the proportion table for faretype VS. Income**
 
 ```{r}
@@ -347,7 +352,7 @@ base  = ggplot(dfFareIncome, aes(x = reorder(Faretype, Percent), y = Percent))
 bars1 = base + geom_bar(stat = "identity")
 bars2 = bars1 + facet_wrap( ~Income,nrow = 3)
 bars3 = bars2 + coord_flip() + 
-                scale_y_continuous(limits=c(0,80),
+                scale_y_continuous(limits=c(0,70),
                                   labels=scales::unit_format(suffix = '%'))
 bars4 = bars3 + geom_text(aes(y = Percent,
                                   label = paste0(round(Percent,1), '%')), 
@@ -385,20 +390,21 @@ _____
 Regression Analysis
 </b></p>
 
-#Question 3: What's the impact of explanatory variables on cash usage?
+Next step is assessing the impact of explanatory variables on cash usage.
 
 In this section, we will explore the realationship among the probability of using cash for this trip, whether people have vehicles, the purpose of this trip, and frequency of using public transportation. 
 
+Given our variables and theory, the methodology we will use is the logistical regression.
 
 **Doing Regression with logit model** 
 
 Here we use logit model since our dependent variable is a binary variable. Our reference group is people who has lowest income, whose purpose of this trip is home-based non-work trip and don't have vehicles at home.
+
 ```{r set the reference group}
 mydata2 <- within(mydata2, income <- relevel(income, ref = "lowest"))
 mydata2 <- within(mydata2, purpose <- relevel(purpose, ref = "Home Based Non-Work Trip"))
 
 ```
-
 
 ```{r logit regression, message=FALSE, warning=FALSE}
 library(dotwhisker)
@@ -433,7 +439,6 @@ dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype
   ggtitle("Predicting probability of using cash") +
   theme_bw()
 ```
-
 
 From the plot above, we can see that compared with reference group, people in the highest income group are less likely to use cash, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
 The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is not significant. 
