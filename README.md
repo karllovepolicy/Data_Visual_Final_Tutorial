@@ -13,6 +13,6 @@
 
 **In this repo you can find:**
 
-* The final [report](https://htmlpreview.github.io/?https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/blob/master/Final_Tutorial_Vitalii_Copy.html#ExpAnal)
+* The final [report](https://htmlpreview.github.io/?https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/blob/master/Final_Tutorial_Haotian_Copy.html)
 * The [raw data](https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/OriginalData.csv) used for the project.
 * The [preprocessed data](https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv) used for the analysis.
