@@ -1,6 +1,4 @@
-<center>
-<# Final Project: Exploring cash use as a transit fare payment type in the Greater Seattle Area>
-</center>
+# Final Project: Exploring cash use as a transit fare payment type in the Greater Seattle Area
 
 ## Course: PUBPOL 599 B Visual Analytics for Policy and Management - Winter 2019
 
@@ -16,7 +14,5 @@
 **In this repo you can find:**
 
 * The final [report](https://htmlpreview.github.io/?https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/blob/master/Final_Tutorial.html)
-* The [raw data](https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv) used for the project. Source: 2000 American Community Survey (ACS)
-* The [raw data](https://github.com/ps0205vi/Evans599FinalProject/blob/master/RawVPKdata.csv). Source: 2000 American Community Survey (ACS)
-
-* The [preprocessed data](https://github.com/ps0205vi/Evans599FinalProject/blob/master/VPKdata.csv).
+* The [raw data](https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/FinalData.csv) used for the project.
+* The [preprocessed data](https://github.com/ps0205vi/Evans599FinalProject/blob/master/VPKdata.csv) used for the analysis.
