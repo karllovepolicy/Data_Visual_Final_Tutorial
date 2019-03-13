@@ -100,6 +100,7 @@ mydata2$vehicle <- factor(mydata2$vehicle)
 mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)#-1
 
 head(mydata2,5)
+str(mydata2)
 # transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
 ```
 Format of variables are right, we are good to go!
@@ -211,12 +212,13 @@ FareIncome=table(mydata2$faretype, mydata2$income)%>%
 Same as with the barplot, we will need to create a data frame
 
 ```{r}
-dfFareIncome=as.data.frame(FareIncome)
+dfFareIncome=as.data.frame(FareIncome) 
 names(dfFareIncome)=c('Faretype','Income_Level','Percent')
+dfFareIncome
 ```
 **Building the faretype VS. Purpose plot**
 ```{r}
-base  = ggplot(dfFareIncome, aes(x = reorder(Faretype, Income_Level), y = Percent))
+base  = ggplot(dfFareIncome, aes(x = reorder(Faretype, Percent), y = Percent))
 bars1 = base + geom_bar(stat = "identity")
 bars2 = bars1 + facet_wrap( ~Income_Level,nrow = 3)
 bars3 = bars2 + coord_flip() + 
