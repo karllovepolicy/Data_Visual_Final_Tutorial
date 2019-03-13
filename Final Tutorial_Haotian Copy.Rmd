@@ -456,9 +456,10 @@ _____
 Findings & Conclusion
 </b></p>
 
-From our regression, we can see that compared with reference group, people in the highest income group are less likely to use cash to pay transit fees, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
+From our regression, we can see that compared with reference group, people in the highest income group are less likely to use cash to pay transit fees, people whose purpose is home based work trip have less probability using cash.
 The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is not significant. 
 <br>
+
 [Go back to top of the page](#Top)
 
 [Go back to the table of contents](#Contents)
