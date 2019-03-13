@@ -29,14 +29,14 @@ Contents:
 
 3. [Question 1: Are cash payments still have a big stake in transit fare types among riders in Seattle?](#part3) 
 
-4. [Question 2: Who is using cash?](#part4)
+4. [Question 2: What type of fare is the most common given different purpose of trips and different income groups?](#part4)
 
 5. [Question 3: What's the effects of explanatory variables have on cash usage?](#part5)
 
 6. [Finding & Conclusion](#part6)
 
 _____
-<a id='Introduction'></a>
+<a id='part1'></a>
 
 <p style="text-align: center; font-size: 175%;"><b>
 Introduction and Data Summary
@@ -91,6 +91,9 @@ _____
 Data Pre-processing
 </b></p>
 
+```{r}
+knitr::opts_chunk$set(fig.width=12, fig.height=8) 
+```
 
 First we need to call the libraries to be able to use the packages 
 
@@ -246,7 +249,7 @@ Now we can build a bar plot to visualize how frequently each of the payment meth
 
 
 #set the specific color for cash
-cashasred <- scale_fill_manual(values=c("Cash" = "Red","Free"="gray50","Other"="gray50","Train Ticket, Day Pass"="gray50","ORCA day pass"="gray50","Train Ticket, One Way"="gray50","U-PASS ORCA"="gray50","ORCA e-purse"="gray50","ORCA, as pass"="gray50"))
+cashasred <- scale_fill_manual(values=c("Cash" = "green","Free"="gray50","Other"="gray50","Train Ticket, Day Pass"="gray50","ORCA day pass"="gray50","Train Ticket, One Way"="gray50","U-PASS ORCA"="gray50","ORCA e-purse"="gray50","ORCA, as pass"="gray50"))
 
 base = ggplot(ft_freq_df, aes(x=reorder(faretype, pct), y=pct, fill=faretype))
 ft_plot1 = base + geom_bar(stat="identity", width = 0.75) + cashasred
@@ -261,13 +264,15 @@ ft_plot3 = ft_plot2 + coord_flip() + scale_y_continuous(limits=c(0,60),
 ft_plot4 = ft_plot3 + geom_text(aes(y = pct,
                                 label = paste0(round(pct,2), '%')), 
                                 hjust= -0.15, 
-                                size = 3)
+                                size = 5)
 ft_plot5 = ft_plot4 + theme(panel.background = element_rect(fill = "white", color = "black"),
                             legend.position = "none",
                             plot.title = element_text(size = 15, hjust = 0.5),
                             plot.caption = element_text(hjust = 1, vjust = -1.2),
-                            axis.title.y = element_text(size = 12, hjust = 0.5, vjust = 1.75),
-                            axis.title.x = element_text(size = 12, hjust = 0.5, vjust = -1.25))
+                            axis.text.x  = element_text(size=15),
+                            axis.text.y  = element_text(size=15),
+                            axis.title.y = element_text(size = 16, hjust = 0.5, vjust = 1.75),
+                            axis.title.x = element_text(size = 16, hjust = 0.5, vjust = -1.25))
 ft_plot5
 ```
 
@@ -280,7 +285,7 @@ _____
 <a id='part4'></a>
 
 <p style="text-align: center; font-size: 175%;"><b>
-Question 2: Who is using cash?
+Question 2: What type of fare is the most common given different purpose of trips and different income groups?
 </b></p>
 
 Now, we will try to answer what type of fare is the most common given different purpose of trips and different income groups.
@@ -323,17 +328,17 @@ bars3 = bars2 + coord_flip() +
 bars4 = bars3 + geom_text(aes(y = Percent,
                                   label = paste0(round(Percent,1), '%')), 
                                   hjust= -0.15, 
-                                  size = 2.5)
+                                  size = 4)
 bars5 = bars4 + labs(title='What fare type is the most common given different purpose of trips?',
                      x ='Fare type',
                      caption = 'Source: Sound Transit 2015 Onboard Survey Data')
-bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
-                      axis.text.x = element_text(size=7),
+bars6 = bars5 + theme(axis.text.y = element_text(size=12, angle = 30),
+                      axis.text.x = element_text(size=12),
                       legend.position = "none",
-                      plot.title = element_text(size = 12, hjust = 0.5),
+                      plot.title = element_text(size = 14, hjust = 0.5),
                       plot.caption = element_text(hjust = 1, vjust = -1.2),
-                      axis.title.y = element_text(size = 11, hjust = 0.5, vjust = 1.75),
-                      axis.title.x = element_text(size = 11, hjust = 0.5, vjust = -1.25))
+                      axis.title.y = element_text(size = 14, hjust = 0.5, vjust = 1.75),
+                      axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25))
 bars6
 ```
 
@@ -367,17 +372,17 @@ bars3 = bars2 + coord_flip() +
 bars4 = bars3 + geom_text(aes(y = Percent,
                                   label = paste0(round(Percent,1), '%')), 
                                   hjust= -0.15, 
-                                  size = 2.5)
+                                  size = 4)
 bars5 = bars4 + labs(title='What fare type is the most common given different income level?',
                      x ='Fare type',
                      caption = 'Source: Sound Transit 2015 Onboard Survey Data')
-bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
-                      axis.text.x = element_text(size=7),
+bars6 = bars5 + theme(axis.text.y = element_text(size=10, angle = 30),
+                      axis.text.x = element_text(size=10),
                       legend.position = "none",
-                      plot.title = element_text(size = 12, hjust = 0.5),
+                      plot.title = element_text(size = 14, hjust = 0.5),
                       plot.caption = element_text(hjust = 1, vjust = -1.2),
-                      axis.title.y = element_text(size = 11, hjust = 0.5, vjust = 1.75),
-                      axis.title.x = element_text(size = 11, hjust = 0.5, vjust = -1.25))
+                      axis.title.y = element_text(size = 14, hjust = 0.5, vjust = 1.75),
+                      axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25))
 bars6
 ```
 
@@ -435,14 +440,36 @@ summary(mylogit4)
 **Comparing four models**
 
 ```{r compare different models}
-allModels=rbind(model1, model2, model3, model4)
+library(cowplot)
+library(gridExtra)
+allModels=rbind(model1, model2, model3)
 
-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
+
+dwplot1<-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
   xlab("Coefficient Estimate") + 
   ylab("") +
   ggtitle("Predicting probability of using cash") +
-  theme_bw()
+  theme(axis.text.y = element_text(size=12, angle = 0),
+        axis.text.x = element_text(size=12),
+        plot.title = element_text(size = 14, hjust = 0.5),
+        plot.caption = element_text(hjust = 1, vjust = -1.2),
+        axis.title.y = element_text(size = 14, hjust = 0.5, vjust = 1.75),
+        axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25))
+
+dwplot2<-dwplot(model4, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
+  xlab("Coefficient Estimate") + 
+  ylab("") +
+  ggtitle("Predicting probability of using cash") +
+  theme(axis.text.y = element_text(size=12, angle = 0),
+        axis.text.x = element_text(size=12),
+        plot.title = element_text(size = 14, hjust = 0.5),
+        plot.caption = element_text(hjust = 1, vjust = -1.2),
+        axis.title.y = element_text(size = 14, hjust = 0.5, vjust = 1.75),
+        axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25))
+
+grid.arrange(dwplot1,dwplot2, ncol=1)
 ```
+
 
 <br>
 [Go back to the table of contents](#Contents)
