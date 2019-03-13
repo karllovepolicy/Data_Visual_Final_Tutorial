@@ -1,21 +1,88 @@
----
-title: "DataVis Class: Final Project Report"
-author: "Group 'Data Wizards': Aishe Memetova, Haotian Bu, Jon White, Vitalii Zakhozhyi"
-output: 
-  html_document:
-    toc: true
-    theme: unitedhtml_document
----
-<h1 align="center" style="color:blue">Exploring cash use as a transit fare payment in Seattle</h1>
+<a id='Top'></a>
 
-Our group is interested in cash use as fare payment method in the Greater Seattle area.
+<br> 
+<center><img src="http://i.imgur.com/sSaOozN.png" width="500"></center>
+<br>
 
-Using the Seattle Sound Transit Data of October-November 2015, we will try to answer the following questions:
-1) Are cash payments still have a big stake in transit fare types among riders in Seattle?
+<p style="text-align: center; font-size: 220%;"><b>
+Exploring cash use as a transit fare payment method <br> in the Greater Seattle Area
+</b></p>
+
+<br> 
+<center><img src="https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/GroupPhoto.png" width="1000"></center>
+<br> 
+
+<p style="font-size: 130%;">
+Produced by <b>'Data Wizards' Group</b>: <br> <i>Haotian Bu, Aishe Memetova, Jon White, Vitalii Zakhozhyi</i>
+</p>
+
+_____
+
+<a id='Contents'></a>
+
+<p style="text-align: left; font-size: 175%;"><b>
+Contents:
+</b></p>
+
+1. [Introduction and Data Summary](#Intro)
+
+2. [Data Pre-processing](#PrePro)
+
+3. [Exploratory Data Analysis](#ExpAnal) 
+
+4. [Regression Analysis](#RegAnal)
+
+5. [Findings & Conclusion](#Fin)
+
+_____
+
+<a id='Intro'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Introduction and Data Summary
+</b></p>
+
+**Introduction**
+
+
+
+According to the that reduces the time buses wait curbside, creating an efficiency for the system
+
+**Research Question**
+
+Our group is interested in exploring the cash use as transit fare payment method in the Greater Seattle area.
+
+Whether cash has a big stake in transit fare payment methods among riders in the Greater Seattle area and if so, who are most likely to pay cash
+
+
+1) Are cash payments still have a big stake in transit fare types among riders in the Greater Seattle area?
 2) What type of fare is the most common given different purpose of trips?
 3).....
 
-**Loading neccessary packages, calling dataset and preparing it for analysis**
+**Data**
+
+The data we use for the research is the [Seattle Sound Transit Survey Data](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/raw/master/OriginalData.csv), collected on different Sound Transit routes during October-November 2015. The full original dataset contains 134 variables and 3398 observations. 
+
+Our variable of interest is fare type (named as "faretype"), which means what method of payment was used by a rider to pay a transit fare. Later, we transform this variable into the dummy variable with the values (Cash/Not Cash), which we further use as the dependent variable for the regressin analysis to assess the impact of chosen explanatory variables on the likelihood of using cash as the transit fare payment method.
+
+The independent variables we used for the research include:
+
+
+The dataset has a lot of missing values. For the purpose of this research, we drop the whole observation if there is a missing value in one of the variables of interests.
+
+<br>
+[Go back to the table of contents](#Contents)
+<br>
+
+
+_____
+
+
+<a id='PrePro'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Data Pre-processing
+</b></p>
 
 First we need to call the libraries to be able to use the packages 
 
@@ -27,99 +94,144 @@ library(dplyr)
 Then we need to call the data we want to analyze. In our case we call the csv file
 
 ```{r import data, results='hide', warning=FALSE, message=FALSE}
-linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/Final_Data.csv", stringsAsFactors=FALSE)
-```
-
-
-```{r}
+linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/OriginalData.csv", stringsAsFactors=FALSE)
 str(linkdata)
 ```
 
-link
-
 ```{r}
-unique(linkdata$hhincome)
-```
+#change names of explanatory variables
+linkdata <- rename(linkdata,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean', "income"="hhincome")
 
-
-```{r}
-linkdata_new <- linkdata %>% 
-  mutate(hhincome = recode(hhincome, 'Under 12000' = "Under $12,000", '12000-15999' = "$12,000-$15,999",'16,000-$19,999' = "$16,000-$19,999")) 
-```
-
-```{r}
-unique(linkdata_new$hhincome)
-```
-
-Delete #NULL
-
-```{r}
 unique(linkdata$faretype)
 ```
-
-
-
+We noticed "False" here, need to change it to "Other".
 ```{r}
+linkdata <- linkdata %>% 
+  mutate(faretype = recode(faretype, 'FALSE' = "Other"))
+```
+
+
+```{r purpose}
 unique(linkdata$purpose)
 ```
 
-%Delete #NULL
-
-```{r}
-unique(linkdata$hhveh_clean)
+```{r income}
+unique(linkdata$income)
 ```
 
-%Delete #NULL
+```{r clean income name}
+#the category of income need some work
+linkdata <- linkdata %>% mutate(income = recode(income, 
+                                    "16,000-$19,999"="$16,000-$19,999",
+                                    "12000-15999" ="$12,000-$15,999",
+                                    "Under 12000"="Under $12,000")) 
+#regroup income levels based on Seattle 2015 Household Income Quantile, https://www.kingcounty.gov/independent/forecasting/King%20County%20Economic%20Indicators/Household%20Income/KC%20Household%20Income%20Quintiles.aspx
+lowest_income <- c("Under $12000","$12,000-$15,999", "$16,000-$19,999", "$20,000-$23,999", "$24,000-$31,999", "$32,000-$39,999")
+medium_low_income <- c("$40,000-$48,999", "$57,000-$74,999", "$49,000-$56,999")
+medium_high_income <-c("$75,000-$99,999")
+highest_income <- c("$100,000+")
 
-```{r}
-unique(linkdata$oneway_all_clean)
+linkdata <- linkdata %>% mutate(income = case_when(
+  income %in% lowest_income~"lowest",
+  income %in% medium_low_income~"medium_low",
+  income %in% medium_high_income~"medium_high",
+  income %in% highest_income~"highest"))
 ```
 
-%Delete #NULL
-
-```{r}
-unique(linkdata$oneway_all_clean)
+```{r vehicle}
+unique(linkdata$vehicle)
 ```
 
+```{r number of trips}
+unique(linkdata$number_of_trips)
+```
 
-**Finalizing the data frame for ggplot**
-
-We will need to get rid of missing values so that they do not distort our analysis. Then we will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
-
-```{r clean, warning=FALSE, message=FALSE}
-linkdata_clean <- linkdata_new %>%
+```{r get ride of missing values, warning=FALSE, message=FALSE}
+mydata1 <- linkdata %>%
   filter(faretype != "#NULL!") %>%
   filter(purpose != "#NULL!") %>% 
-  filter(hhincome != "#NULL!") %>%
-  filter(hhvec_clean != "#NULL") %>%
-  filter(oneway_all_clean != "#NULL")
-  
+  filter(income != "NA") %>% 
+  filter(vehicle != "#NULL!") %>% 
+  filter(number_of_trips != "#NULL!")
+```
 
-absol_ft=table(linkdata_clean$faretype, exclude = 'nothing')
-names(absol_ft)[2]='Other'
+```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
+# these variable are all characters, we need to transform, some to numeric, some to factor
+mydata1$vehicle <- as.numeric(mydata1$vehicle)
+# subset, transform faretype and vehicle binary variables, select needed variables:
+mydata2 <- mydata1 %>% mutate(cashlove = ifelse(faretype=="Cash", 1, 0), vehicle = ifelse(vehicle>0, 1, 0)) %>% select(faretype, cashlove, purpose, income,  vehicle, number_of_trips) 
+
+#mydata2$faretype <- factor(mydata2$faretype)
+
+# set the right type for dependent variable
+#from num to factor
+mydata2$cashlove <- factor(mydata2$cashlove)
+
+# set the correct type for explanatory variables
+#reset the level of variable "purpose"
+mydata2$purpose <- factor(mydata2$purpose) 
+#from cha to factor, set right level for factor
+mydata2$income <- factor(mydata2$income) 
+#mydata2$income <- factor(mydata2$income, levels=rev(levels(sizes)))
+#from num to factor
+mydata2$vehicle <- factor(mydata2$vehicle)
+#from cha to numeric
+mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)#-1
+
+head(mydata2,5)
+# transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
+```
+Format of variables are right, we are good to go!
+
+```{r export dataset}
+write.csv(mydata2, file = "FinalData.csv")
+```
+
+<br>
+[Go back to the table of contents](#Contents)
+<br>
+
+
+_____
+
+<a id='ExpAnal'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Exploratory Data Analysis
+</b></p>
+
+#Question 1: Is cash still used as payment for transit? 
+**Finalizing the data frame for univariable ggplot**
+
+We will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
+
+```{r}
+absol_ft=table(mydata2$faretype, exclude = 'nothing')
 ft_freq=prop.table(absol_ft)*100
 ft_freq_df=as.data.frame(ft_freq) 
 names(ft_freq_df)=c("faretype","pct")
-ft_freq_df_ord=ft_freq_df[order(-ft_freq_df$pct), ]
-```
 
-**Building a bar plot using ggplot**
+#ft_freq_df$faretype <- sort(ft_freq_df$faretype,-ft_freq_df$pct)
+#ft_freq_df<- ft_freq_df %>% arrange(faretype,-pct)\
+#ft_freq_df$faretype= factor(ft_freq_df$faretype, levels=ft_freq_df$faretype[order()]), ordered=TRUE)
+ft_freq_df
+```
 
 Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash. 
 ```{r barplot}
-cols <- ifelse(ft_freq_df_ord$faretype == "Cash", "red","gray50")
-
-base = ggplot(ft_freq_df_ord, aes(faretype, pct))
-ft_plot1 = base + geom_bar(stat="identity", fill=cols, width = 0.75)
+#cols <- ifelse(ft_freq_df$faretype == "Cash", "red","gray50")
+#something wrong with color, fix now
+base = ggplot(ft_freq_df, aes(x=reorder(faretype, pct),y=pct))
+ft_plot1 = base + geom_bar(stat="identity", fill="gray50", width = 0.75)
 ft_plot2 = ft_plot1 + labs(title='Do riders still use cash to pay a transit fare in Seattle?', #to label the graph 
                            x ='Type of fare',
                            y = 'Percentage of riders',
                            caption = 'Source: Sound Transit 2015 Onboard Survey Data')
-ft_plot3 = ft_plot2 + coord_flip() +
-                      scale_y_continuous(limits=c(0,55),
-                                         breaks = seq(0, 55, by = 5), 
-                                         labels=scales::unit_format(suffix = '%')) +
-                      scale_x_discrete(limits=ft_freq_df_ord$faretype)
+ft_plot3 = ft_plot2 + coord_flip() 
+ft_plot4 = ft_plot3 #+ scale_y_continuous(limits=c(0,55),
+                                    # breaks = seq(0, 55, by = 5)+ 
+                                    # labels=unit_format(suffix = '%')) +
+                            #scale_x_discrete(limits=ft_freq_df$faretype)
 ft_plot4 = ft_plot3 + geom_text(aes(y = pct,
                                 label = paste0(round(pct,2), '%')), 
                                 hjust= -0.15, 
@@ -133,37 +245,32 @@ ft_plot5
 ```
 
 
-###################### BIVAR #####################   
+#Question 2: Who is using cash?
 
-Now, we will try to answer what type of fare is the most common given different purpose of trips.
+Now, we will try to answer what type of fare is the most common given different purpose of trips and different income groups.
 
-
-**Cleaning the data and creating the proportion table**
+**Cleaning the data and creating the proportion table for faretype VS. Purpose**
 
 We will first need to clean the data so that there are no missing values
 
 ```{r}
-linkincomefare=table(linkdata_clean$faretype, linkdata_clean$purpose)%>%
-         prop.table(margin = 2)%>%   # 2 is % by column
-         "*"(100)%>%
+FarePurpose=table(mydata2$faretype, mydata2$purpose)%>% 
+         prop.table(margin = 2)%>%   # 2 is % by column 
+         "*"(100)%>% 
          round(3)
 ```
-
-**Creating the dataframe for building the plot**
 
 Same as with the barplot, we will need to create a data frame
 
 ```{r dflink}
-dflink=as.data.frame(linkincomefare)
-names(dflink)=c('Fairtype','Purpose','Percent')
-dflink_new = dflink %>% 
-  mutate(Fairtype = recode(Fairtype, 'FALSE' = "Other")) #recoding FALSE to Other, meaning other type of fare
+dfFarePurpose=as.data.frame(FarePurpose)
+names(dfFarePurpose)=c('Faretype','Purpose','Percent')
 ```
 
-**Building the plot**
+**Building the faretype VS. Purpose plot**
 
 ```{r barplotfarepurpose}
-base  = ggplot(dflink_new, aes(x = reorder(Fairtype, Percent), y = Percent))
+base  = ggplot(dfFarePurpose, aes(x = reorder(Faretype, Percent), y = Percent))
 bars1 = base + geom_bar(stat = "identity")
 bars2 = bars1 + facet_wrap( ~ Purpose ,nrow = 1)
 bars3 = bars2 + coord_flip() + 
@@ -185,39 +292,80 @@ bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
 bars6
 ```
 
+**Cleaning the data and creating the proportion table for faretype VS. Income**
+```{r}
+FareIncome=table(mydata2$faretype, mydata2$income)%>%
+         prop.table(margin = 2)%>%   # 2 is % by column
+         "*"(100)%>%
+         round(3)
+```
 
-##################### MULTIVAR #################### 
+Same as with the barplot, we will need to create a data frame
 
+```{r}
+dfFareIncome=as.data.frame(FareIncome) 
+names(dfFareIncome)=c('Faretype','Income','Percent')
+dfFareIncome
+```
+**Building the faretype VS. Purpose plot**
+```{r}
+base  = ggplot(dfFareIncome, aes(x = reorder(Faretype, Percent), y = Percent))
+bars1 = base + geom_bar(stat = "identity")
+bars2 = bars1 + facet_wrap( ~Income,nrow = 3)
+bars3 = bars2 + coord_flip() + 
+                scale_y_continuous(limits=c(0,80),
+                                  labels=scales::unit_format(suffix = '%'))
+bars4 = bars3 + geom_text(aes(y = Percent,
+                                  label = paste0(round(Percent,1), '%')), 
+                                  hjust= -0.15, 
+                                  size = 2.5)
+bars5 = bars4 + labs(title='What fare type is the most common given different income level?',
+                     x ='Fare type',
+                     caption = 'Source: Sound Transit 2015 Onboard Survey Data')
+bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
+                      axis.text.x = element_text(size=7),
+                      plot.title = element_text(size = 12, hjust = 0.5),
+                      plot.caption = element_text(hjust = 1, vjust = -1.2),
+                      axis.title.y = element_text(size = 11, hjust = 0.5, vjust = 1.75),
+                      axis.title.x = element_text(size = 11, hjust = 0.5, vjust = -1.25))
+bars6
+```
+
+
+**Building Correlation Plot**
+```{r correlation matrix}
+
+```
+
+
+<br>
+[Go back to the table of contents](#Contents)
+<br>
+
+
+_____
+
+<a id='RegAnal'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Regression Analysis
+</b></p>
+
+#Question 3: What's the impact of explanatory variables on cash usage?
 
 In this section, we will explore the realationship among the probability of using cash for this trip, whether people have vehicles, the purpose of this trip, and frequency of using public transportation. 
 
 
-**Preparing a dataset for regression** 
+**Doing Regression with logit model** 
 
-First, we need to make our dataset ready for regression. At the following code we select dependent variables and explanatory variables, then set the right format for each of the variables:
+Here we use logit model since our dependent variable is a binary variable. Our reference group is people who has lowest income, whose purpose of this trip is home-based non-work trip and don't have vehicles at home.
+```{r set the reference group}
+mydata2 <- within(mydata2, income <- relevel(income, ref = "lowest"))
+mydata2 <- within(mydata2, purpose <- relevel(purpose, ref = "Home Based Non-Work Trip"))
 
-```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
-#change names of explanatory variables
-library(dplyr)
-mydata1 <- rename(linkdata_clean,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean', "income"="hhincome")
-
-# transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
-mydata1$vehicle <- as.numeric(mydata1$vehicle)-1
-mydata1$number_of_trips <- as.numeric(mydata1$number_of_trips)-1
-
-# subset, select needed variables:
-mydata2 <- mydata1 %>% mutate(cashlove = ifelse(faretype=="Cash", 1, 0), vehicle = ifelse(vehicle>0, 1, 0)) %>% select(cashlove, purpose, number_of_trips, vehicle) %>% filter(purpose != "#NULL!")
-# set the correct type for explanatory variables
-mydata2$cashlove <- factor(mydata2$cashlove)
-mydata2$vehicle <- factor(mydata2$vehicle)
-mydata2$purpose <- factor(mydata2$purpose) #reset the level of variable "purpose"
-mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)
-head(mydata2,5)
 ```
 
-**Using the logit model** 
 
-Here we use logit model since our dependent variable is a binary variable. Our reference group is people whose purpose of this trip is home-based non-work trip and don't have vehicles at home.
 ```{r logit regression, message=FALSE, warning=FALSE}
 library(dotwhisker)
 library(broom)
@@ -225,22 +373,25 @@ library(broom)
 mylogit1 <- glm(cashlove ~ purpose, data = mydata2, family = "binomial")
 model1 = tidy(mylogit1) %>%   # we save the result as a tidy object and...
     mutate(model = "Model 1")
-#use purpose and number of trips
-mylogit2 <- glm(cashlove ~ purpose + number_of_trips, data = mydata2, family = "binomial")
+#use 
+mylogit2 <- glm(cashlove ~ purpose + vehicle, data = mydata2, family = "binomial")
 model2 = tidy(mylogit2) %>%   # we save the result as a tidy object and...
     mutate(model = "Model 2")
-#use all three explanatory varibales
-mylogit3 <- glm(cashlove ~ purpose + number_of_trips + vehicle, data = mydata2, family = "binomial")
+#use 
+mylogit3 <- glm(cashlove ~ purpose + vehicle +number_of_trips, data = mydata2, family = "binomial")
 model3 = tidy(mylogit3) %>%   # we save the result as a tidy object and...
     mutate(model = "Model 3")
-
-summary(mylogit3)
+#use 
+mylogit4 <- glm(cashlove ~ purpose + vehicle + number_of_trips + income, data = mydata2, family = "binomial")
+model4 = tidy(mylogit4) %>%   # we save the result as a tidy object and...
+    mutate(model = "Model 4")
+summary(mylogit4)
 ```
 
-**Comparing three models**
+**Comparing four models**
 
 ```{r compare different models}
-allModels=rbind(model1, model2, model3)
+allModels=rbind(model1, model2, model3, model4)
 
 dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
   xlab("Coefficient Estimate") + 
@@ -249,9 +400,41 @@ dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype
   theme_bw()
 ```
 
-From the plot above, we can see that compared with reference group, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
-The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is non-significant. 
+From the plot above, we can see that compared with reference group, people in the highest income group are less likely to use cash, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
+The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is not significant. 
 
 
 
 
+<br>
+[Go back to the table of contents](#Contents)
+<br>
+
+
+_____
+
+<a id='Fin'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Findings & Conclusion
+</b></p>
+
+
+d
+d
+d
+d
+dd
+d
+d
+dd
+
+
+
+_____
+<br>
+[Go back to top of the page](#Top)
+
+[Go back to the table of contents](#Contents)
+
+[Go to the Project Repo](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial)
