@@ -283,7 +283,9 @@ If the goal is to reduce the payments with cash, current stake of 5% seems like 
 _____
 <a id='part4'></a>
 
-#Question 2: Who is using cash?
+<p style="text-align: center; font-size: 175%;"><b>
+Question 2: Who is using cash?
+</b></p>
 
 Now, we will try to answer what type of fare is the most common given different purpose of trips and different income groups.
 
@@ -390,7 +392,10 @@ bars6
 _____
 <a id='part5'></a>
 
-#Question 3: What's the effects of explanatory variables have on cash usage?
+<p style="text-align: center; font-size: 175%;"><b>
+Question 3: What's the effects of explanatory variables have on cash usage?
+</b></p>
+
 
 Next step is assessing the impact of explanatory variables on cash usage.
 
