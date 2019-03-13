@@ -1,5 +1,4 @@
-# Final Project:
-## Exploring cash use as a transit fare payment method in the Greater Seattle Area
+# Final Project: Exploring cash use as a transit fare payment method in the Greater Seattle Area
 
 ## Course: PUBPOL 599 B Visual Analytics for Policy and Management - Winter 2019
 
