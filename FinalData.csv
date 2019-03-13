@@ -1,0 +1,779 @@
+"","faretype","cashlove","purpose","income","vehicle","number_of_trips"
+"1","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",4
+"2","ORCA e-purse","0","Home Based Work Trip","medium_high","1",14
+"3","ORCA, as pass","0","Home Based Work Trip","medium_low","0",40
+"4","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",5
+"5","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",30
+"6","ORCA, as pass","0","Home Based Work Trip","lowest","0",45
+"7","ORCA e-purse","0","Home Based Work Trip","highest","1",25
+"8","ORCA, as pass","0","Home Based Work Trip","medium_low","0",50
+"9","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",11
+"10","ORCA e-purse","0","Home Based Non-Work Trip","highest","0",9
+"11","ORCA, as pass","0","Home Based Work Trip","highest","1",5
+"12","ORCA, as pass","0","Home Based Work Trip","medium_low","1",30
+"13","ORCA, as pass","0","Home Based Work Trip","lowest","0",75
+"14","Cash","1","Home Based Non-Work Trip","medium_low","1",7
+"15","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",20
+"16","ORCA, as pass","0","Home Based Work Trip","medium_low","0",40
+"17","ORCA, as pass","0","Home Based Work Trip","medium_low","1",40
+"18","ORCA, as pass","0","Home Based Work Trip","medium_high","1",20
+"19","ORCA e-purse","0","Home Based Work Trip","medium_high","1",50
+"20","ORCA e-purse","0","Home Based Work Trip","medium_low","1",10
+"21","ORCA, as pass","0","Home Based Work Trip","medium_high","1",60
+"22","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",60
+"23","ORCA e-purse","0","Non-home based trip","lowest","1",10
+"24","ORCA, as pass","0","Home Based Work Trip","medium_low","0",48
+"25","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"26","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"27","ORCA e-purse","0","Non-home based trip","medium_high","1",20
+"28","ORCA, as pass","0","Home Based Work Trip","highest","1",60
+"29","ORCA e-purse","0","Non-home based trip","medium_low","1",36
+"30","ORCA, as pass","0","Home Based Work Trip","lowest","0",50
+"31","ORCA, as pass","0","Home Based Work Trip","lowest","0",50
+"32","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",27
+"33","ORCA e-purse","0","Home Based Work Trip","highest","0",40
+"34","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",7
+"35","ORCA e-purse","0","Home Based Work Trip","highest","1",20
+"36","ORCA, as pass","0","Home Based Work Trip","medium_low","0",54
+"37","ORCA, as pass","0","Non-home based trip","medium_low","0",30
+"38","ORCA, as pass","0","Non-home based trip","medium_low","1",30
+"39","ORCA, as pass","0","Home Based Work Trip","medium_low","0",16
+"40","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",8
+"41","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",30
+"42","ORCA e-purse","0","Home Based Work Trip","medium_high","1",36
+"43","ORCA e-purse","0","Home Based Work Trip","highest","1",20
+"44","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",5
+"45","ORCA e-purse","0","Home Based Non-Work Trip","highest","0",12
+"46","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",20
+"47","ORCA e-purse","0","Home Based Work Trip","medium_low","1",20
+"48","ORCA, as pass","0","Home Based Work Trip","medium_high","1",50
+"49","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",10
+"50","ORCA, as pass","0","Home Based Work Trip","medium_low","0",50
+"51","ORCA, as pass","0","Home Based Work Trip","highest","1",22
+"52","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",9
+"53","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",2
+"54","ORCA, as pass","0","Non-home based trip","medium_low","1",40
+"55","ORCA, as pass","0","Non-home based trip","medium_low","1",5
+"56","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",2
+"57","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","0",35
+"58","Cash","1","Home Based Non-Work Trip","medium_low","0",3
+"59","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",4
+"60","ORCA, as pass","0","Home Based Work Trip","medium_low","0",32
+"61","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",90
+"62","ORCA e-purse","0","Home Based Work Trip","highest","1",20
+"63","Cash","1","Home Based Non-Work Trip","highest","1",2
+"64","ORCA, as pass","0","Home Based Work Trip","medium_high","1",5
+"65","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",60
+"66","ORCA, as pass","0","Home Based Work Trip","medium_low","1",80
+"67","ORCA e-purse","0","Home Based Work Trip","highest","1",2
+"68","ORCA e-purse","0","Home Based Work Trip","medium_low","1",40
+"69","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"70","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",3
+"71","ORCA, as pass","0","Home Based Work Trip","lowest","1",44
+"72","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",16
+"73","ORCA, as pass","0","Home Based Work Trip","highest","1",50
+"74","ORCA, as pass","0","Home Based Work Trip","medium_high","0",40
+"75","ORCA e-purse","0","Non-home based trip","medium_low","1",40
+"76","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",2
+"77","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",6
+"78","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",1
+"79","ORCA e-purse","0","Home Based Work Trip","medium_low","1",65
+"80","ORCA, as pass","0","Home Based Work Trip","lowest","1",22
+"81","ORCA, as pass","0","Home Based Work Trip","medium_low","1",30
+"82","U-PASS ORCA","0","Home Based Non-Work Trip","medium_high","1",50
+"83","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",1
+"84","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",1
+"85","ORCA, as pass","0","Home Based Work Trip","lowest","1",41
+"86","U-PASS ORCA","0","Home Based Work Trip","medium_low","1",25
+"87","ORCA, as pass","0","Home Based Work Trip","medium_high","0",50
+"88","ORCA, as pass","0","Home Based Work Trip","medium_low","0",60
+"89","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"90","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"91","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",15
+"92","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",50
+"93","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"94","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"95","ORCA, as pass","0","Home Based Work Trip","medium_low","1",30
+"96","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",0
+"97","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",15
+"98","U-PASS ORCA","0","Home Based Work Trip","medium_high","1",15
+"99","ORCA e-purse","0","Home Based Work Trip","medium_low","0",48
+"100","U-PASS ORCA","0","Home Based Work Trip","medium_low","1",20
+"101","ORCA, as pass","0","Home Based Work Trip","medium_low","1",80
+"102","ORCA, as pass","0","Home Based Work Trip","lowest","1",70
+"103","ORCA, as pass","0","Home Based Work Trip","medium_low","1",30
+"104","ORCA e-purse","0","Non-home based trip","lowest","0",70
+"105","ORCA e-purse","0","Home Based Work Trip","highest","1",18
+"106","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"107","ORCA e-purse","0","Non-home based trip","highest","1",40
+"108","ORCA e-purse","0","Non-home based trip","highest","1",0
+"109","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",12
+"110","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",20
+"111","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",38
+"112","ORCA, as pass","0","Home Based Work Trip","medium_low","1",33
+"113","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",20
+"114","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",4
+"115","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",1
+"116","ORCA e-purse","0","Home Based Work Trip","medium_high","1",20
+"117","ORCA e-purse","0","Home Based Work Trip","lowest","1",30
+"118","ORCA e-purse","0","Non-home based trip","lowest","1",20
+"119","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",30
+"120","ORCA, as pass","0","Home Based Work Trip","lowest","1",60
+"121","ORCA, as pass","0","Home Based Work Trip","lowest","0",20
+"122","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",40
+"123","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",40
+"124","ORCA e-purse","0","Home Based Work Trip","lowest","0",30
+"125","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",10
+"126","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",20
+"127","ORCA, as pass","0","Home Based Work Trip","lowest","0",25
+"128","ORCA, as pass","0","Home Based Work Trip","medium_low","1",15
+"129","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"130","ORCA, as pass","0","Home Based Work Trip","medium_high","1",40
+"131","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",44
+"132","ORCA, as pass","0","Home Based Work Trip","medium_high","1",15
+"133","ORCA e-purse","0","Home Based Work Trip","medium_low","1",20
+"134","U-PASS ORCA","0","Home Based Work Trip","medium_low","1",50
+"135","ORCA, as pass","0","Home Based Work Trip","highest","1",60
+"136","ORCA, as pass","0","Non-home based trip","medium_low","1",13
+"137","ORCA, as pass","0","Home Based Work Trip","lowest","1",100
+"138","U-PASS ORCA","0","Home Based Non-Work Trip","medium_high","1",12
+"139","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",60
+"140","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",30
+"141","U-PASS ORCA","0","Home Based Work Trip","medium_low","1",12
+"142","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",15
+"143","U-PASS ORCA","0","Home Based Non-Work Trip","medium_high","1",40
+"144","ORCA e-purse","0","Home Based Work Trip","lowest","0",50
+"145","ORCA, as pass","0","Home Based Work Trip","lowest","0",30
+"146","U-PASS ORCA","0","Home Based Work Trip","medium_low","1",30
+"147","U-PASS ORCA","0","Home Based Work Trip","highest","1",50
+"148","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",40
+"149","ORCA, as pass","0","Home Based Work Trip","highest","1",52
+"150","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",7
+"151","U-PASS ORCA","0","Home Based Work Trip","lowest","1",30
+"152","ORCA, as pass","0","Non-home based trip","highest","1",10
+"153","ORCA e-purse","0","Home Based Work Trip","medium_low","1",60
+"154","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",0
+"155","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"156","ORCA, as pass","0","Home Based Work Trip","medium_low","1",25
+"157","ORCA day pass","0","Home Based Non-Work Trip","medium_low","0",25
+"158","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",20
+"159","ORCA e-purse","0","Home Based Work Trip","lowest","0",50
+"160","ORCA e-purse","0","Home Based Work Trip","lowest","0",65
+"161","ORCA, as pass","0","Non-home based trip","highest","1",60
+"162","ORCA, as pass","0","Home Based Work Trip","highest","1",30
+"163","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",10
+"164","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",9
+"165","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",30
+"166","ORCA, as pass","0","Home Based Work Trip","lowest","1",50
+"167","U-PASS ORCA","0","Home Based Work Trip","lowest","1",30
+"168","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",18
+"169","ORCA, as pass","0","Home Based Work Trip","lowest","1",20
+"170","ORCA e-purse","0","Home Based Work Trip","medium_high","1",28
+"171","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",30
+"172","ORCA day pass","0","Non-home based trip","lowest","0",4
+"173","ORCA, as pass","0","Home Based Work Trip","highest","1",41
+"174","ORCA, as pass","0","Home Based Work Trip","highest","1",15
+"175","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",60
+"176","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",6
+"177","ORCA, as pass","0","Home Based Work Trip","medium_low","0",4
+"178","ORCA, as pass","0","Home Based Work Trip","medium_low","1",25
+"179","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",45
+"180","ORCA, as pass","0","Home Based Work Trip","highest","1",2
+"181","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"182","ORCA, as pass","0","Home Based Work Trip","highest","1",2
+"183","ORCA, as pass","0","Home Based Work Trip","medium_low","1",50
+"184","ORCA, as pass","0","Home Based Work Trip","medium_high","1",1
+"185","ORCA, as pass","0","Home Based Work Trip","highest","1",2
+"186","ORCA, as pass","0","Home Based Work Trip","medium_high","1",2
+"187","ORCA, as pass","0","Home Based Work Trip","medium_low","1",0
+"188","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",54
+"189","ORCA, as pass","0","Home Based Work Trip","lowest","0",50
+"190","ORCA e-purse","0","Home Based Work Trip","lowest","0",10
+"191","ORCA, as pass","0","Home Based Work Trip","lowest","1",10
+"192","Train Ticket, One Way","0","Home Based Non-Work Trip","medium_low","1",25
+"193","ORCA, as pass","0","Home Based Work Trip","medium_low","1",47
+"194","ORCA e-purse","0","Home Based Work Trip","medium_low","1",4
+"195","ORCA, as pass","0","Home Based Work Trip","medium_high","1",25
+"196","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",15
+"197","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",50
+"198","Cash","1","Non-home based trip","highest","1",1
+"199","ORCA e-purse","0","Home Based Work Trip","medium_low","1",5
+"200","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",10
+"201","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",3
+"202","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",32
+"203","ORCA, as pass","0","Non-home based trip","medium_low","1",1
+"204","ORCA, as pass","0","Non-home based trip","highest","1",35
+"205","ORCA, as pass","0","Non-home based trip","medium_high","1",0
+"206","ORCA, as pass","0","Home Based Work Trip","lowest","0",25
+"207","Cash","1","Non-home based trip","medium_low","1",3
+"208","ORCA, as pass","0","Home Based Work Trip","lowest","0",32
+"209","ORCA, as pass","0","Non-home based trip","lowest","0",72
+"210","Train Ticket, One Way","0","Non-home based trip","medium_low","1",2
+"211","ORCA, as pass","0","Non-home based trip","lowest","1",3
+"212","ORCA day pass","0","Non-home based trip","medium_low","1",0
+"213","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"214","ORCA e-purse","0","Home Based Work Trip","lowest","1",6
+"215","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",7
+"216","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",6
+"217","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",2
+"218","ORCA e-purse","0","Non-home based trip","highest","1",30
+"219","ORCA, as pass","0","Home Based Work Trip","medium_low","1",23
+"220","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",5
+"221","Cash","1","Home Based Non-Work Trip","highest","1",8
+"222","ORCA, as pass","0","Home Based Work Trip","lowest","0",20
+"223","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",40
+"224","Train Ticket, One Way","0","Home Based Non-Work Trip","medium_high","0",2
+"225","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",10
+"226","ORCA e-purse","0","Non-home based trip","highest","1",16
+"227","ORCA, as pass","0","Non-home based trip","highest","1",12
+"228","U-PASS ORCA","0","Non-home based trip","medium_low","1",30
+"229","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"230","ORCA e-purse","0","Non-home based trip","medium_low","1",4
+"231","ORCA, as pass","0","Non-home based trip","highest","1",56
+"232","Train Ticket, One Way","0","Non-home based trip","highest","1",0
+"233","ORCA, as pass","0","Home Based Work Trip","medium_low","0",30
+"234","ORCA, as pass","0","Home Based Work Trip","lowest","1",40
+"235","ORCA, as pass","0","Home Based Work Trip","medium_high","1",66
+"236","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"237","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",30
+"238","ORCA e-purse","0","Non-home based trip","medium_low","1",16
+"239","ORCA, as pass","0","Home Based Work Trip","medium_low","1",1
+"240","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"241","U-PASS ORCA","0","Non-home based trip","highest","1",20
+"242","ORCA e-purse","0","Home Based Work Trip","medium_low","1",40
+"243","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"244","Train Ticket, One Way","0","Non-home based trip","medium_low","1",0
+"245","ORCA, as pass","0","Home Based Work Trip","medium_low","1",10
+"246","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",60
+"247","ORCA, as pass","0","Home Based Work Trip","lowest","1",10
+"248","ORCA e-purse","0","Home Based Work Trip","lowest","1",40
+"249","ORCA, as pass","0","Non-home based trip","medium_high","1",60
+"250","ORCA, as pass","0","Home Based Work Trip","medium_high","1",15
+"251","ORCA, as pass","0","Home Based Work Trip","medium_high","1",58
+"252","ORCA, as pass","0","Home Based Work Trip","medium_low","0",70
+"253","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"254","ORCA, as pass","0","Non-home based trip","medium_low","1",15
+"255","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",35
+"256","ORCA, as pass","0","Home Based Work Trip","medium_low","1",32
+"257","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",2
+"258","ORCA, as pass","0","Non-home based trip","highest","1",2
+"259","U-PASS ORCA","0","Home Based Work Trip","highest","1",50
+"260","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",12
+"261","ORCA, as pass","0","Home Based Work Trip","medium_high","1",40
+"262","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",1
+"263","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",14
+"264","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","0",60
+"265","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"266","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",46
+"267","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",0
+"268","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",15
+"269","ORCA, as pass","0","Home Based Work Trip","medium_high","1",4
+"270","ORCA, as pass","0","Home Based Work Trip","medium_low","1",3
+"271","U-PASS ORCA","0","Non-home based trip","medium_low","1",60
+"272","ORCA, as pass","0","Home Based Work Trip","highest","1",12
+"273","Train Ticket, Day Pass","0","Home Based Work Trip","lowest","0",0
+"274","ORCA, as pass","0","Non-home based trip","medium_high","1",25
+"275","ORCA, as pass","0","Home Based Work Trip","highest","1",15
+"276","ORCA e-purse","0","Home Based Work Trip","medium_high","1",20
+"277","ORCA e-purse","0","Home Based Work Trip","highest","1",32
+"278","ORCA, as pass","0","Home Based Work Trip","highest","1",92
+"279","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"280","ORCA, as pass","0","Home Based Work Trip","medium_low","0",40
+"281","U-PASS ORCA","0","Home Based Work Trip","highest","1",45
+"282","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",25
+"283","ORCA, as pass","0","Home Based Work Trip","medium_low","1",10
+"284","ORCA, as pass","0","Home Based Work Trip","medium_low","1",10
+"285","Cash","1","Home Based Non-Work Trip","medium_high","1",0
+"286","ORCA e-purse","0","Home Based Work Trip","medium_low","1",20
+"287","ORCA e-purse","0","Home Based Work Trip","medium_high","1",12
+"288","Cash","1","Home Based Work Trip","medium_low","1",5
+"289","ORCA, as pass","0","Home Based Work Trip","highest","1",3
+"290","ORCA e-purse","0","Home Based Work Trip","highest","1",12
+"291","ORCA, as pass","0","Home Based Work Trip","medium_low","1",10
+"292","ORCA, as pass","0","Home Based Work Trip","highest","1",0
+"293","ORCA, as pass","0","Home Based Work Trip","highest","1",26
+"294","ORCA, as pass","0","Home Based Work Trip","lowest","1",12
+"295","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"296","ORCA e-purse","0","Home Based Work Trip","medium_low","1",90
+"297","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",12
+"298","ORCA, as pass","0","Home Based Work Trip","highest","1",90
+"299","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"300","ORCA e-purse","0","Home Based Work Trip","medium_low","1",6
+"301","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",30
+"302","ORCA e-purse","0","Home Based Work Trip","lowest","1",10
+"303","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",2
+"304","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",0
+"305","Train Ticket, One Way","0","Home Based Non-Work Trip","medium_low","1",0
+"306","ORCA e-purse","0","Home Based Work Trip","medium_low","0",32
+"307","ORCA, as pass","0","Home Based Work Trip","lowest","0",10
+"308","Train Ticket, Day Pass","0","Non-home based trip","medium_high","0",3
+"309","Train Ticket, Day Pass","0","Non-home based trip","highest","1",1
+"310","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",2
+"311","ORCA e-purse","0","Non-home based trip","medium_high","1",0
+"312","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",20
+"313","Cash","1","Non-home based trip","medium_low","1",60
+"314","ORCA, as pass","0","Home Based Work Trip","lowest","0",30
+"315","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",8
+"316","U-PASS ORCA","0","Home Based Work Trip","lowest","1",60
+"317","ORCA, as pass","0","Home Based Work Trip","medium_low","0",40
+"318","ORCA, as pass","0","Home Based Work Trip","highest","1",8
+"319","ORCA, as pass","0","Home Based Non-Work Trip","highest","0",30
+"320","ORCA, as pass","0","Non-home based trip","medium_low","1",15
+"321","ORCA e-purse","0","Non-home based trip","medium_low","1",44
+"322","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",7
+"323","ORCA, as pass","0","Non-home based trip","highest","1",45
+"324","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","0",20
+"325","ORCA, as pass","0","Non-home based trip","medium_low","1",0
+"326","ORCA, as pass","0","Non-home based trip","lowest","0",15
+"327","Cash","1","Non-home based trip","lowest","1",0
+"328","ORCA, as pass","0","Non-home based trip","lowest","1",30
+"329","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",50
+"330","ORCA, as pass","0","Non-home based trip","medium_low","1",60
+"331","ORCA, as pass","0","Non-home based trip","highest","1",40
+"332","Cash","1","Non-home based trip","medium_high","1",0
+"333","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",3
+"334","Train Ticket, One Way","0","Non-home based trip","lowest","1",0
+"335","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",35
+"336","ORCA, as pass","0","Non-home based trip","highest","1",0
+"337","ORCA, as pass","0","Home Based Work Trip","medium_low","1",6
+"338","U-PASS ORCA","0","Home Based Non-Work Trip","medium_high","1",4
+"339","ORCA, as pass","0","Home Based Non-Work Trip","highest","0",5
+"340","ORCA day pass","0","Home Based Non-Work Trip","medium_low","0",65
+"341","ORCA, as pass","0","Home Based Work Trip","medium_low","0",25
+"342","ORCA day pass","0","Home Based Work Trip","lowest","0",0
+"343","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",20
+"344","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",2
+"345","ORCA, as pass","0","Home Based Work Trip","medium_low","1",60
+"346","ORCA e-purse","0","Home Based Work Trip","medium_low","1",18
+"347","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",48
+"348","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",3
+"349","ORCA, as pass","0","Home Based Work Trip","medium_low","1",3
+"350","Train Ticket, One Way","0","Non-home based trip","highest","1",1
+"351","ORCA, as pass","0","Home Based Work Trip","lowest","1",32
+"352","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",10
+"353","Cash","1","Home Based Non-Work Trip","highest","1",0
+"354","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",55
+"355","ORCA e-purse","0","Non-home based trip","medium_high","1",5
+"356","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",60
+"357","ORCA, as pass","0","Non-home based trip","highest","1",40
+"358","ORCA, as pass","0","Home Based Work Trip","medium_low","1",5
+"359","ORCA, as pass","0","Non-home based trip","highest","1",40
+"360","ORCA e-purse","0","Home Based Work Trip","lowest","1",23
+"361","Train Ticket, One Way","0","Home Based Non-Work Trip","medium_low","1",2
+"362","ORCA, as pass","0","Home Based Work Trip","highest","1",1
+"363","ORCA e-purse","0","Non-home based trip","highest","1",18
+"364","U-PASS ORCA","0","Home Based Work Trip","medium_low","1",50
+"365","ORCA, as pass","0","Home Based Work Trip","lowest","1",10
+"366","ORCA e-purse","0","Non-home based trip","medium_low","1",3
+"367","ORCA e-purse","0","Home Based Work Trip","highest","1",25
+"368","ORCA, as pass","0","Non-home based trip","highest","1",0
+"369","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"370","ORCA, as pass","0","Home Based Work Trip","medium_low","1",10
+"371","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"372","ORCA, as pass","0","Home Based Work Trip","lowest","0",8
+"373","ORCA, as pass","0","Home Based Work Trip","medium_high","0",30
+"374","Other","0","Home Based Non-Work Trip","highest","1",6
+"375","Cash","1","Home Based Non-Work Trip","medium_high","1",1
+"376","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",30
+"377","ORCA e-purse","0","Non-home based trip","highest","1",15
+"378","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",4
+"379","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",11
+"380","Cash","1","Non-home based trip","highest","1",3
+"381","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","0",60
+"382","ORCA day pass","0","Home Based Work Trip","highest","1",13
+"383","ORCA, as pass","0","Home Based Work Trip","highest","1",8
+"384","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"385","ORCA, as pass","0","Home Based Work Trip","highest","1",6
+"386","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",0
+"387","ORCA e-purse","0","Home Based Work Trip","highest","1",8
+"388","ORCA, as pass","0","Home Based Work Trip","lowest","1",60
+"389","ORCA e-purse","0","Home Based Work Trip","medium_low","1",60
+"390","Train Ticket, One Way","0","Non-home based trip","highest","1",0
+"391","U-PASS ORCA","0","Home Based Work Trip","highest","1",5
+"392","ORCA e-purse","0","Home Based Work Trip","highest","1",10
+"393","ORCA e-purse","0","Home Based Work Trip","highest","1",40
+"394","ORCA e-purse","0","Non-home based trip","highest","1",24
+"395","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",50
+"396","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",6
+"397","Other","0","Non-home based trip","medium_low","1",0
+"398","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",10
+"399","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",30
+"400","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",40
+"401","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",18
+"402","Train Ticket, One Way","0","Non-home based trip","medium_high","1",0
+"403","Train Ticket, One Way","0","Non-home based trip","lowest","0",0
+"404","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",25
+"405","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",10
+"406","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",10
+"407","U-PASS ORCA","0","Home Based Work Trip","highest","1",20
+"408","ORCA, as pass","0","Home Based Work Trip","highest","1",10
+"409","ORCA, as pass","0","Home Based Work Trip","lowest","1",16
+"410","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",15
+"411","ORCA e-purse","0","Home Based Work Trip","lowest","1",25
+"412","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"413","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",2
+"414","Train Ticket, One Way","0","Non-home based trip","highest","1",6
+"415","Train Ticket, One Way","0","Non-home based trip","highest","1",6
+"416","ORCA, as pass","0","Home Based Work Trip","highest","1",15
+"417","ORCA, as pass","0","Home Based Work Trip","medium_low","1",10
+"418","ORCA, as pass","0","Home Based Work Trip","lowest","1",20
+"419","ORCA e-purse","0","Home Based Work Trip","highest","1",4
+"420","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",5
+"421","ORCA e-purse","0","Non-home based trip","medium_low","1",20
+"422","ORCA, as pass","0","Home Based Work Trip","highest","1",30
+"423","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"424","ORCA, as pass","0","Home Based Work Trip","medium_high","1",2
+"425","ORCA, as pass","0","Home Based Work Trip","medium_low","1",50
+"426","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"427","ORCA, as pass","0","Home Based Work Trip","medium_low","1",15
+"428","ORCA, as pass","0","Non-home based trip","lowest","0",25
+"429","Train Ticket, One Way","0","Non-home based trip","highest","1",2
+"430","ORCA, as pass","0","Home Based Non-Work Trip","highest","0",40
+"431","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",3
+"432","ORCA e-purse","0","Home Based Work Trip","highest","1",2
+"433","ORCA, as pass","0","Non-home based trip","highest","1",1
+"434","Free","0","Non-home based trip","highest","1",20
+"435","ORCA e-purse","0","Home Based Work Trip","lowest","1",6
+"436","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",1
+"437","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",26
+"438","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",20
+"439","ORCA, as pass","0","Home Based Work Trip","lowest","1",60
+"440","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",50
+"441","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",15
+"442","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",0
+"443","ORCA, as pass","0","Non-home based trip","medium_low","1",45
+"444","ORCA, as pass","0","Non-home based trip","medium_high","1",10
+"445","ORCA, as pass","0","Non-home based trip","highest","1",17
+"446","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"447","ORCA e-purse","0","Home Based Work Trip","medium_low","1",8
+"448","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",0
+"449","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",15
+"450","ORCA, as pass","0","Non-home based trip","medium_low","0",45
+"451","ORCA, as pass","0","Home Based Work Trip","highest","1",60
+"452","ORCA day pass","0","Non-home based trip","medium_low","1",20
+"453","ORCA, as pass","0","Non-home based trip","highest","1",0
+"454","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",4
+"455","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",60
+"456","ORCA e-purse","0","Home Based Work Trip","lowest","0",4
+"457","ORCA e-purse","0","Non-home based trip","medium_low","1",60
+"458","ORCA day pass","0","Non-home based trip","highest","1",30
+"459","ORCA, as pass","0","Home Based Work Trip","medium_high","1",60
+"460","ORCA, as pass","0","Home Based Work Trip","medium_low","0",20
+"461","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",40
+"462","ORCA, as pass","0","Non-home based trip","highest","1",100
+"463","ORCA, as pass","0","Home Based Work Trip","medium_low","1",60
+"464","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",50
+"465","ORCA, as pass","0","Home Based Work Trip","highest","1",22
+"466","U-PASS ORCA","0","Home Based Work Trip","lowest","1",20
+"467","ORCA, as pass","0","Home Based Non-Work Trip","highest","0",100
+"468","ORCA, as pass","0","Non-home based trip","medium_high","1",65
+"469","ORCA, as pass","0","Home Based Work Trip","highest","1",21
+"470","ORCA, as pass","0","Home Based Work Trip","medium_low","1",2
+"471","ORCA, as pass","0","Home Based Work Trip","medium_high","1",20
+"472","ORCA, as pass","0","Home Based Work Trip","medium_high","1",3
+"473","ORCA, as pass","0","Home Based Work Trip","medium_low","1",2
+"474","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"475","ORCA e-purse","0","Home Based Work Trip","highest","1",30
+"476","U-PASS ORCA","0","Non-home based trip","medium_high","1",25
+"477","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",10
+"478","Cash","1","Home Based Non-Work Trip","medium_low","1",2
+"479","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","0",0
+"480","ORCA, as pass","0","Home Based Work Trip","medium_high","1",50
+"481","ORCA, as pass","0","Non-home based trip","lowest","1",45
+"482","ORCA, as pass","0","Home Based Work Trip","medium_low","1",40
+"483","ORCA e-purse","0","Home Based Work Trip","medium_low","1",30
+"484","ORCA, as pass","0","Non-home based trip","lowest","1",0
+"485","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",20
+"486","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",5
+"487","ORCA, as pass","0","Home Based Work Trip","medium_high","0",5
+"488","ORCA, as pass","0","Home Based Work Trip","medium_high","1",2
+"489","ORCA, as pass","0","Home Based Work Trip","medium_low","1",6
+"490","ORCA, as pass","0","Home Based Work Trip","medium_low","0",5
+"491","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"492","ORCA, as pass","0","Home Based Work Trip","medium_high","1",15
+"493","ORCA e-purse","0","Home Based Work Trip","highest","1",20
+"494","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",4
+"495","ORCA e-purse","0","Non-home based trip","lowest","1",8
+"496","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","0",15
+"497","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",60
+"498","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",2
+"499","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",15
+"500","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"501","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",12
+"502","ORCA, as pass","0","Non-home based trip","highest","1",20
+"503","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",20
+"504","ORCA, as pass","0","Home Based Work Trip","medium_low","0",60
+"505","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",10
+"506","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",0
+"507","ORCA, as pass","0","Home Based Work Trip","medium_low","0",40
+"508","Cash","1","Home Based Non-Work Trip","lowest","1",0
+"509","ORCA, as pass","0","Home Based Work Trip","highest","1",10
+"510","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",20
+"511","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",30
+"512","ORCA, as pass","0","Home Based Work Trip","medium_low","1",48
+"513","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"514","ORCA, as pass","0","Home Based Work Trip","medium_low","1",4
+"515","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",15
+"516","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",28
+"517","ORCA, as pass","0","Home Based Work Trip","lowest","1",30
+"518","ORCA, as pass","0","Home Based Work Trip","medium_high","0",30
+"519","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",80
+"520","ORCA, as pass","0","Home Based Work Trip","lowest","0",40
+"521","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",10
+"522","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",10
+"523","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",0
+"524","Cash","1","Home Based Work Trip","medium_low","1",12
+"525","ORCA, as pass","0","Home Based Work Trip","lowest","1",10
+"526","ORCA, as pass","0","Non-home based trip","medium_high","1",2
+"527","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",1
+"528","Cash","1","Non-home based trip","highest","1",0
+"529","ORCA, as pass","0","Non-home based trip","medium_low","1",1
+"530","ORCA, as pass","0","Home Based Work Trip","medium_high","1",20
+"531","ORCA, as pass","0","Home Based Work Trip","highest","1",2
+"532","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"533","ORCA, as pass","0","Home Based Work Trip","highest","1",7
+"534","Train Ticket, One Way","0","Non-home based trip","highest","1",0
+"535","ORCA, as pass","0","Non-home based trip","highest","1",60
+"536","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"537","Cash","1","Non-home based trip","medium_high","1",3
+"538","Train Ticket, One Way","0","Non-home based trip","medium_low","1",0
+"539","ORCA e-purse","0","Home Based Non-Work Trip","medium_high","1",3
+"540","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",30
+"541","ORCA e-purse","0","Home Based Work Trip","medium_low","1",6
+"542","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",2
+"543","ORCA, as pass","0","Home Based Work Trip","medium_low","1",4
+"544","Train Ticket, Day Pass","0","Non-home based trip","highest","1",0
+"545","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",6
+"546","Train Ticket, One Way","0","Home Based Non-Work Trip","lowest","0",50
+"547","ORCA e-purse","0","Non-home based trip","lowest","1",17
+"548","ORCA, as pass","0","Home Based Work Trip","lowest","1",1
+"549","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",18
+"550","ORCA, as pass","0","Non-home based trip","medium_low","1",0
+"551","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",30
+"552","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",10
+"553","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",40
+"554","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",1
+"555","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"556","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",8
+"557","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",2
+"558","Train Ticket, One Way","0","Non-home based trip","medium_high","1",0
+"559","ORCA, as pass","0","Non-home based trip","medium_low","1",2
+"560","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",25
+"561","Cash","1","Non-home based trip","lowest","1",4
+"562","ORCA, as pass","0","Home Based Work Trip","medium_low","1",35
+"563","ORCA e-purse","0","Home Based Work Trip","lowest","0",100
+"564","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","1",25
+"565","ORCA, as pass","0","Home Based Work Trip","medium_low","0",20
+"566","ORCA, as pass","0","Home Based Non-Work Trip","highest","0",13
+"567","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"568","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"569","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"570","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"571","ORCA, as pass","0","Home Based Work Trip","highest","1",15
+"572","ORCA e-purse","0","Home Based Work Trip","highest","1",32
+"573","ORCA e-purse","0","Home Based Work Trip","medium_high","1",40
+"574","ORCA, as pass","0","Home Based Work Trip","highest","1",5
+"575","ORCA, as pass","0","Home Based Work Trip","medium_high","1",2
+"576","ORCA e-purse","0","Home Based Work Trip","medium_low","1",2
+"577","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"578","ORCA, as pass","0","Home Based Work Trip","lowest","1",22
+"579","Free","0","Home Based Work Trip","highest","1",60
+"580","Cash","1","Non-home based trip","highest","1",0
+"581","ORCA, as pass","0","Non-home based trip","highest","1",40
+"582","ORCA, as pass","0","Home Based Work Trip","medium_low","1",30
+"583","ORCA, as pass","0","Home Based Work Trip","highest","1",10
+"584","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",1
+"585","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",1
+"586","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",25
+"587","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"588","ORCA e-purse","0","Home Based Work Trip","medium_low","0",10
+"589","ORCA day pass","0","Non-home based trip","highest","1",5
+"590","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",58
+"591","ORCA e-purse","0","Home Based Non-Work Trip","highest","0",5
+"592","Other","0","Home Based Non-Work Trip","lowest","1",6
+"593","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",5
+"594","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",2
+"595","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",2
+"596","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",20
+"597","Train Ticket, One Way","0","Home Based Non-Work Trip","lowest","1",1
+"598","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",12
+"599","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",1
+"600","ORCA, as pass","0","Non-home based trip","medium_low","1",40
+"601","Train Ticket, One Way","0","Home Based Non-Work Trip","medium_low","1",4
+"602","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",5
+"603","ORCA, as pass","0","Non-home based trip","highest","1",2
+"604","ORCA, as pass","0","Home Based Work Trip","medium_high","1",30
+"605","ORCA, as pass","0","Home Based Work Trip","lowest","1",30
+"606","ORCA, as pass","0","Home Based Work Trip","highest","1",25
+"607","ORCA e-purse","0","Non-home based trip","highest","1",15
+"608","U-PASS ORCA","0","Home Based Non-Work Trip","medium_low","0",60
+"609","ORCA e-purse","0","Home Based Non-Work Trip","lowest","1",70
+"610","ORCA, as pass","0","Non-home based trip","medium_low","1",60
+"611","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"612","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",15
+"613","ORCA, as pass","0","Home Based Work Trip","highest","1",6
+"614","Train Ticket, One Way","0","Home Based Work Trip","lowest","1",10
+"615","ORCA, as pass","0","Home Based Work Trip","lowest","0",15
+"616","ORCA, as pass","0","Non-home based trip","highest","1",20
+"617","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",40
+"618","ORCA, as pass","0","Non-home based trip","medium_low","1",20
+"619","ORCA, as pass","0","Non-home based trip","highest","1",12
+"620","ORCA e-purse","0","Home Based Work Trip","highest","1",2
+"621","ORCA, as pass","0","Home Based Work Trip","highest","1",4
+"622","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",8
+"623","ORCA, as pass","0","Home Based Work Trip","medium_low","1",56
+"624","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",20
+"625","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",10
+"626","ORCA, as pass","0","Home Based Work Trip","highest","1",26
+"627","ORCA e-purse","0","Home Based Work Trip","medium_low","0",8
+"628","ORCA day pass","0","Home Based Non-Work Trip","medium_high","1",10
+"629","ORCA, as pass","0","Home Based Non-Work Trip","highest","0",90
+"630","ORCA, as pass","0","Home Based Work Trip","highest","1",50
+"631","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","1",10
+"632","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",2
+"633","ORCA, as pass","0","Home Based Work Trip","medium_low","1",30
+"634","ORCA, as pass","0","Home Based Work Trip","medium_high","1",8
+"635","U-PASS ORCA","0","Home Based Work Trip","medium_high","1",15
+"636","ORCA, as pass","0","Home Based Non-Work Trip","lowest","1",30
+"637","ORCA e-purse","0","Non-home based trip","medium_high","1",8
+"638","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",15
+"639","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",26
+"640","ORCA, as pass","0","Home Based Work Trip","medium_high","1",3
+"641","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","0",3
+"642","Train Ticket, One Way","0","Home Based Non-Work Trip","medium_low","1",0
+"643","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",10
+"644","Cash","1","Home Based Non-Work Trip","lowest","0",2
+"645","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","0",4
+"646","U-PASS ORCA","0","Home Based Non-Work Trip","highest","1",10
+"647","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",20
+"648","ORCA e-purse","0","Home Based Work Trip","lowest","1",48
+"649","ORCA, as pass","0","Home Based Work Trip","lowest","1",30
+"650","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",30
+"651","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",5
+"652","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",4
+"653","Cash","1","Non-home based trip","lowest","1",0
+"654","ORCA, as pass","0","Home Based Work Trip","lowest","1",3
+"655","Cash","1","Non-home based trip","highest","1",3
+"656","ORCA day pass","0","Home Based Non-Work Trip","highest","1",0
+"657","ORCA day pass","0","Non-home based trip","highest","1",0
+"658","Cash","1","Non-home based trip","lowest","0",30
+"659","Train Ticket, One Way","0","Non-home based trip","highest","1",0
+"660","ORCA, as pass","0","Home Based Work Trip","medium_low","1",5
+"661","ORCA e-purse","0","Home Based Work Trip","medium_low","1",10
+"662","ORCA e-purse","0","Non-home based trip","highest","1",5
+"663","Train Ticket, One Way","0","Non-home based trip","highest","1",2
+"664","Train Ticket, Day Pass","0","Home Based Non-Work Trip","lowest","1",2
+"665","ORCA, as pass","0","Home Based Work Trip","medium_low","1",5
+"666","ORCA e-purse","0","Non-home based trip","highest","1",40
+"667","ORCA, as pass","0","Home Based Work Trip","medium_low","0",30
+"668","ORCA, as pass","0","Home Based Work Trip","lowest","0",30
+"669","ORCA, as pass","0","Non-home based trip","highest","1",10
+"670","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",40
+"671","ORCA, as pass","0","Non-home based trip","medium_high","1",30
+"672","ORCA, as pass","0","Home Based Work Trip","lowest","1",50
+"673","ORCA, as pass","0","Non-home based trip","highest","1",25
+"674","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"675","ORCA, as pass","0","Home Based Work Trip","lowest","0",40
+"676","ORCA, as pass","0","Home Based Work Trip","lowest","1",15
+"677","Cash","1","Home Based Work Trip","lowest","0",20
+"678","ORCA, as pass","0","Home Based Work Trip","lowest","1",15
+"679","Train Ticket, One Way","0","Non-home based trip","highest","1",2
+"680","ORCA, as pass","0","Home Based Work Trip","medium_low","0",100
+"681","ORCA, as pass","0","Home Based Work Trip","medium_low","0",80
+"682","Cash","1","Non-home based trip","medium_low","1",30
+"683","ORCA, as pass","0","Non-home based trip","medium_high","1",70
+"684","U-PASS ORCA","0","Home Based Work Trip","highest","1",32
+"685","ORCA, as pass","0","Home Based Work Trip","medium_high","0",20
+"686","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",0
+"687","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",2
+"688","ORCA e-purse","0","Home Based Work Trip","medium_low","1",1
+"689","ORCA e-purse","0","Home Based Work Trip","highest","1",10
+"690","ORCA, as pass","0","Home Based Work Trip","medium_low","1",4
+"691","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",20
+"692","ORCA, as pass","0","Home Based Work Trip","highest","1",20
+"693","ORCA, as pass","0","Home Based Work Trip","medium_high","1",5
+"694","ORCA, as pass","0","Home Based Work Trip","medium_low","0",80
+"695","U-PASS ORCA","0","Home Based Work Trip","medium_high","1",20
+"696","ORCA, as pass","0","Home Based Work Trip","medium_high","1",40
+"697","ORCA, as pass","0","Non-home based trip","medium_low","1",64
+"698","ORCA, as pass","0","Home Based Work Trip","medium_low","1",48
+"699","ORCA, as pass","0","Home Based Work Trip","highest","1",10
+"700","Cash","1","Home Based Work Trip","medium_low","1",20
+"701","ORCA e-purse","0","Home Based Work Trip","lowest","1",50
+"702","ORCA e-purse","0","Home Based Work Trip","lowest","1",100
+"703","Cash","1","Home Based Work Trip","lowest","1",20
+"704","ORCA, as pass","0","Home Based Work Trip","medium_low","0",90
+"705","ORCA, as pass","0","Home Based Work Trip","lowest","1",60
+"706","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",12
+"707","ORCA, as pass","0","Home Based Work Trip","lowest","1",32
+"708","ORCA, as pass","0","Non-home based trip","lowest","1",25
+"709","ORCA, as pass","0","Home Based Work Trip","medium_low","1",16
+"710","Cash","1","Home Based Non-Work Trip","lowest","1",30
+"711","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",30
+"712","ORCA, as pass","0","Home Based Work Trip","lowest","1",8
+"713","ORCA, as pass","0","Home Based Work Trip","medium_low","1",26
+"714","ORCA, as pass","0","Home Based Work Trip","lowest","0",30
+"715","ORCA, as pass","0","Home Based Work Trip","lowest","1",30
+"716","ORCA, as pass","0","Home Based Work Trip","medium_high","1",25
+"717","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",10
+"718","Cash","1","Home Based Non-Work Trip","medium_low","1",20
+"719","Cash","1","Non-home based trip","lowest","1",1
+"720","ORCA e-purse","0","Home Based Work Trip","medium_low","0",60
+"721","ORCA e-purse","0","Home Based Work Trip","lowest","0",40
+"722","ORCA e-purse","0","Home Based Work Trip","lowest","1",60
+"723","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",20
+"724","ORCA, as pass","0","Home Based Work Trip","lowest","1",80
+"725","ORCA, as pass","0","Home Based Work Trip","lowest","0",60
+"726","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",1
+"727","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",20
+"728","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","0",30
+"729","ORCA e-purse","0","Home Based Non-Work Trip","highest","0",12
+"730","ORCA e-purse","0","Home Based Non-Work Trip","lowest","0",10
+"731","ORCA, as pass","0","Non-home based trip","lowest","1",60
+"732","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",8
+"733","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",18
+"734","ORCA, as pass","0","Home Based Work Trip","lowest","1",60
+"735","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",56
+"736","ORCA e-purse","0","Home Based Non-Work Trip","medium_low","0",30
+"737","ORCA e-purse","0","Home Based Work Trip","lowest","0",44
+"738","ORCA e-purse","0","Home Based Work Trip","highest","1",65
+"739","ORCA e-purse","0","Non-home based trip","lowest","1",20
+"740","ORCA, as pass","0","Non-home based trip","lowest","0",50
+"741","ORCA, as pass","0","Home Based Work Trip","highest","1",50
+"742","ORCA, as pass","0","Non-home based trip","medium_low","0",40
+"743","ORCA, as pass","0","Non-home based trip","medium_low","1",6
+"744","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"745","Cash","1","Home Based Non-Work Trip","medium_low","1",0
+"746","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"747","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20
+"748","ORCA e-purse","0","Non-home based trip","highest","1",20
+"749","ORCA e-purse","0","Home Based Work Trip","lowest","1",40
+"750","Train Ticket, One Way","0","Home Based Non-Work Trip","lowest","1",5
+"751","ORCA, as pass","0","Home Based Work Trip","lowest","1",40
+"752","ORCA, as pass","0","Home Based Non-Work Trip","lowest","0",50
+"753","ORCA, as pass","0","Home Based Work Trip","highest","1",30
+"754","U-PASS ORCA","0","Home Based Non-Work Trip","lowest","1",18
+"755","ORCA e-purse","0","Home Based Work Trip","lowest","1",60
+"756","Train Ticket, One Way","0","Home Based Non-Work Trip","highest","1",3
+"757","ORCA e-purse","0","Home Based Work Trip","medium_low","1",30
+"758","Train Ticket, One Way","0","Non-home based trip","highest","1",1
+"759","ORCA, as pass","0","Home Based Non-Work Trip","medium_high","1",40
+"760","Cash","1","Home Based Non-Work Trip","highest","1",0
+"761","Cash","1","Home Based Non-Work Trip","highest","1",5
+"762","U-PASS ORCA","0","Home Based Non-Work Trip","medium_high","1",40
+"763","ORCA e-purse","0","Home Based Non-Work Trip","highest","1",40
+"764","Cash","1","Home Based Non-Work Trip","medium_high","1",0
+"765","ORCA e-purse","0","Home Based Work Trip","lowest","1",25
+"766","ORCA, as pass","0","Home Based Non-Work Trip","medium_low","1",60
+"767","ORCA, as pass","0","Home Based Work Trip","highest","1",40
+"768","ORCA, as pass","0","Home Based Work Trip","highest","1",10
+"769","ORCA, as pass","0","Home Based Non-Work Trip","highest","1",2
+"770","ORCA e-purse","0","Home Based Work Trip","highest","1",40
+"771","ORCA, as pass","0","Home Based Work Trip","highest","1",29
+"772","ORCA e-purse","0","Home Based Work Trip","lowest","1",6
+"773","ORCA, as pass","0","Home Based Work Trip","medium_high","1",60
+"774","ORCA e-purse","0","Home Based Work Trip","medium_low","1",30
+"775","ORCA, as pass","0","Home Based Work Trip","medium_high","1",40
+"776","ORCA, as pass","0","Home Based Work Trip","highest","1",15
+"777","Cash","1","Non-home based trip","lowest","1",20
+"778","ORCA, as pass","0","Home Based Work Trip","medium_low","1",20

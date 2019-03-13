@@ -116,8 +116,9 @@ mydata2$cashlove <- factor(mydata2$cashlove)
 # set the correct type for explanatory variables
 #reset the level of variable "purpose"
 mydata2$purpose <- factor(mydata2$purpose) 
-#from cha to factor
+#from cha to factor, set right level for factor
 mydata2$income <- factor(mydata2$income) 
+#mydata2$income <- factor(mydata2$income, levels=rev(levels(sizes)))
 #from num to factor
 mydata2$vehicle <- factor(mydata2$vehicle)
 #from cha to numeric
@@ -129,7 +130,11 @@ head(mydata2,5)
 Format of variables are right, we are good to go!
 
 ```{r export dataset}
-#write.csv(mydata2, file = "FinalData.csv")
+write.csv(mydata2, file = "FinalData.csv")
+```
+
+```{r}
+
 ```
 
 
