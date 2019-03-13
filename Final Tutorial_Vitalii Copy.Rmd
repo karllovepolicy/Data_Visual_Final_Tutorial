@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 <a id='Top'></a>
 
 <br> 
@@ -44,20 +49,22 @@ Introduction and Data Summary
 
 **Introduction**
 
+Our group is interested in exploring the cash use as transit fare payment method in the Greater Seattle area.
 
 
-According to the that reduces the time buses wait curbside, creating an efficiency for the system
+Sound transit requested this research to find out to what extent cash is still used in the Greater Seattle area. They would be also interested what population will be more likely to use cash for transit fare payment.
+
+<br>
 
 **Research Question**
 
-Our group is interested in exploring the cash use as transit fare payment method in the Greater Seattle area.
+The main research question is the following:
 
-Whether cash has a big stake in transit fare payment methods among riders in the Greater Seattle area and if so, who are most likely to pay cash
+<p style="text-align: center; font-size: 130%;"><b>
+Whether cash has a big stake in transit fare payment methods among riders in the Greater Seattle area and if so, who are most likely to pay transit fare in cash?
+</b></p>
 
-
-1) Are cash payments still have a big stake in transit fare types among riders in the Greater Seattle area?
-2) What type of fare is the most common given different purpose of trips?
-3).....
+<br>
 
 **Data**
 
@@ -67,6 +74,10 @@ Our variable of interest is fare type (named as "faretype"), which means what me
 
 The independent variables we used for the research include:
 
+* Purpose of the trip ("purpose")
+* Household Income ("income")
+* Vehicle in the household ("vehicle")
+* Number of trips made on any transit route in the region in the last month  ("number_of_trips")
 
 The dataset has a lot of missing values. For the purpose of this research, we drop the whole observation if there is a missing value in one of the variables of interests.
 
@@ -84,32 +95,39 @@ _____
 Data Pre-processing
 </b></p>
 
-First we need to call the libraries to be able to use the packages 
+First, we need to call the libraries to be able to use the packages 
 
 ```{r load library, results='hide', warning=FALSE, message=FALSE}
 library(ggplot2)
 library(scales)
 library(dplyr)
 ```
-Then we need to call the data we want to analyze. In our case we call the csv file
+
+Then, we need to call the data we would use for the analysis. In our case, we import data from the csv file
 
 ```{r import data, results='hide', warning=FALSE, message=FALSE}
 linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/OriginalData.csv", stringsAsFactors=FALSE)
-str(linkdata)
+str(linkdata) #checking the variables, their names and types
 ```
+
+Some varable manes used in the original data set are not clear and easy to use. Changing the names of some explanatory variables
 
 ```{r}
-#change names of explanatory variables
 linkdata <- rename(linkdata,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean', "income"="hhincome")
+```
 
+Generally looking at the data, we observed a lot of missing data (noted as #NULL). Before getting rid of the observations with the missing values, we are checking the unique values of every variable of interest. 
+
+```{r}
 unique(linkdata$faretype)
 ```
+
 We noticed "False" here, need to change it to "Other".
+
 ```{r}
 linkdata <- linkdata %>% 
   mutate(faretype = recode(faretype, 'FALSE' = "Other"))
 ```
-
 
 ```{r purpose}
 unique(linkdata$purpose)
@@ -118,6 +136,8 @@ unique(linkdata$purpose)
 ```{r income}
 unique(linkdata$income)
 ```
+
+We noticed that some values of income are not consistent. Therefore, we unify the format of the values by recoding them. Additionally, we regrouping income levels to 4 groups: lowest, medium-low, medium-high, and highest income. 
 
 ```{r clean income name}
 #the category of income need some work
@@ -146,6 +166,8 @@ unique(linkdata$vehicle)
 unique(linkdata$number_of_trips)
 ```
 
+Almost all the variables have some observations with the missing data, so for cleaning the data we drop those observations and create a new dataset. 
+
 ```{r get ride of missing values, warning=FALSE, message=FALSE}
 mydata1 <- linkdata %>%
   filter(faretype != "#NULL!") %>%
@@ -154,6 +176,8 @@ mydata1 <- linkdata %>%
   filter(vehicle != "#NULL!") %>% 
   filter(number_of_trips != "#NULL!")
 ```
+
+The format of some variables needs to be changed. 
 
 ```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
 # these variable are all characters, we need to transform, some to numeric, some to factor
@@ -181,7 +205,14 @@ mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)#-1
 head(mydata2,5)
 # transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
 ```
-Format of variables are right, we are good to go!
+
+After the cleaning and pre-processing of the data, we got the subset with 6 variables of interest and 778 completed observations.
+
+```{r}
+str(mydata2)
+```
+
+Format of variables are right, we are good to go! Saving the preprocessed dataset as .csv file for futher analysis.
 
 ```{r export dataset}
 write.csv(mydata2, file = "FinalData.csv")
@@ -200,49 +231,49 @@ _____
 Exploratory Data Analysis
 </b></p>
 
-#Question 1: Is cash still used as payment for transit? 
-**Finalizing the data frame for univariable ggplot**
+Lets start our analysis with the discussion of the use o different methods of transit fare payment. The first question we need to answer is to what extent cash is being used as the method to pay transit fare.
 
-We will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
+To answer this question, we can build a **univariate** plot, showing the proportions of use of certain types of payment methods.  
+
+To build plots, we will use ggplot2 package. This packege will build plots based on data frames. So before building the plot, we need to create the data frame of fare type frequences. 
 
 ```{r}
-absol_ft=table(mydata2$faretype, exclude = 'nothing')
-ft_freq=prop.table(absol_ft)*100
-ft_freq_df=as.data.frame(ft_freq) 
-names(ft_freq_df)=c("faretype","pct")
-
-#ft_freq_df$faretype <- sort(ft_freq_df$faretype,-ft_freq_df$pct)
-#ft_freq_df<- ft_freq_df %>% arrange(faretype,-pct)\
-#ft_freq_df$faretype= factor(ft_freq_df$faretype, levels=ft_freq_df$faretype[order()]), ordered=TRUE)
-ft_freq_df
+absol_ft=table(mydata2$faretype, exclude = 'nothing') #absolute values
+ft_freq=prop.table(absol_ft)*100 #proportion
+ft_freq_df=as.data.frame(ft_freq) #changing to a data frame format
+names(ft_freq_df)=c("faretype","pct") #changing names of data frame columns
+ft_freq_df_ord=ft_freq_df[order(-ft_freq_df$pct), ] #ordering
+ft_freq_df_ord
 ```
 
-Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash. 
-```{r barplot}
-#cols <- ifelse(ft_freq_df$faretype == "Cash", "red","gray50")
-#something wrong with color, fix now
-base = ggplot(ft_freq_df, aes(x=reorder(faretype, pct),y=pct))
-ft_plot1 = base + geom_bar(stat="identity", fill="gray50", width = 0.75)
-ft_plot2 = ft_plot1 + labs(title='Do riders still use cash to pay a transit fare in Seattle?', #to label the graph 
+Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash.
+
+```{r barplot, fig.align='center'}
+cols <- ifelse(ft_freq_df_ord$faretype == "Cash", "red","gray50")
+
+base = ggplot(ft_freq_df_ord, aes(faretype, pct))
+ft_plot1 = base + geom_bar(stat="identity", fill=cols, width = 0.75)
+ft_plot2 = ft_plot1 + labs(title='Do riders still use cash to pay a transit fare in Seattle?',
                            x ='Type of fare',
                            y = 'Percentage of riders',
                            caption = 'Source: Sound Transit 2015 Onboard Survey Data')
 ft_plot3 = ft_plot2 + coord_flip() 
-ft_plot4 = ft_plot3 #+ scale_y_continuous(limits=c(0,55),
-                                    # breaks = seq(0, 55, by = 5)+ 
-                                    # labels=unit_format(suffix = '%')) +
-                            #scale_x_discrete(limits=ft_freq_df$faretype)
-ft_plot4 = ft_plot3 + geom_text(aes(y = pct,
+ft_plot4 = ft_plot3 + scale_y_continuous(limits = c(0,60),
+                                         breaks = seq(0, 60, by = 10),
+                                         labels = scales::unit_format(suffix = '%')) +
+                      scale_x_discrete(limits = ft_freq_df_ord$faretype)
+ft_plot5 = ft_plot4 + geom_text(aes(y = pct,
                                 label = paste0(round(pct,2), '%')), 
                                 hjust= -0.15, 
-                                size = 3)
-ft_plot5 = ft_plot4 + theme(panel.background = element_rect(fill = "white", color = "black"),
+                                size = 2.75)
+ft_plot6 = ft_plot5 + theme(panel.background = element_rect(fill = "white", color = "black"),
                             plot.title = element_text(size = 15, hjust = 0.5),
                             plot.caption = element_text(hjust = 1, vjust = -1.2),
                             axis.title.y = element_text(size = 12, hjust = 0.5, vjust = 1.75),
                             axis.title.x = element_text(size = 12, hjust = 0.5, vjust = -1.25))
-ft_plot5
+ft_plot6
 ```
+
 
 
 #Question 2: Who is using cash?
@@ -269,7 +300,7 @@ names(dfFarePurpose)=c('Faretype','Purpose','Percent')
 
 **Building the faretype VS. Purpose plot**
 
-```{r barplotfarepurpose}
+```{r barplotfarepurpose, fig.align='center'}
 base  = ggplot(dfFarePurpose, aes(x = reorder(Faretype, Percent), y = Percent))
 bars1 = base + geom_bar(stat = "identity")
 bars2 = bars1 + facet_wrap( ~ Purpose ,nrow = 1)
@@ -293,6 +324,7 @@ bars6
 ```
 
 **Cleaning the data and creating the proportion table for faretype VS. Income**
+
 ```{r}
 FareIncome=table(mydata2$faretype, mydata2$income)%>%
          prop.table(margin = 2)%>%   # 2 is % by column
@@ -307,8 +339,10 @@ dfFareIncome=as.data.frame(FareIncome)
 names(dfFareIncome)=c('Faretype','Income','Percent')
 dfFareIncome
 ```
+
 **Building the faretype VS. Purpose plot**
-```{r}
+
+```{r, fig.align='center'}
 base  = ggplot(dfFareIncome, aes(x = reorder(Faretype, Percent), y = Percent))
 bars1 = base + geom_bar(stat = "identity")
 bars2 = bars1 + facet_wrap( ~Income,nrow = 3)
@@ -333,7 +367,7 @@ bars6
 
 
 **Building Correlation Plot**
-```{r correlation matrix}
+```{r correlation matrix, fig.align='center'}
 
 ```
 
@@ -390,7 +424,7 @@ summary(mylogit4)
 
 **Comparing four models**
 
-```{r compare different models}
+```{r compare different models, fig.align='center'}
 allModels=rbind(model1, model2, model3, model4)
 
 dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
@@ -400,10 +434,9 @@ dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype
   theme_bw()
 ```
 
+
 From the plot above, we can see that compared with reference group, people in the highest income group are less likely to use cash, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
 The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is not significant. 
-
-
 
 
 <br>
@@ -419,19 +452,14 @@ _____
 Findings & Conclusion
 </b></p>
 
+**Main Findings:**
 
-d
-d
-d
-d
-dd
-d
-d
-dd
+* Finding 1
+* Finding 2
+* Finding 3
 
+Here should be 1 paragraph of the conclusion
 
-
-_____
 <br>
 [Go back to top of the page](#Top)
 
