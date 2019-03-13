@@ -1,36 +1,96 @@
+<a id='Top'></a>
 
-# Exploring cash use as a transit fare payment in Seattle
-##Author: "Group 'Data Wizards': Aishe Memetova, Haotian Bu, Jon White, Vitalii Zakhozhyi"**
+<br> 
+<center><img src="http://i.imgur.com/sSaOozN.png" width="500"></center>
+<br>
 
+<p style="text-align: center; font-size: 220%;"><b>
+Exploring cash use as a transit fare payment method <br> in the Greater Seattle Area
+</b></p>
+
+<br> 
 <center><img src="https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/GroupPhoto.png" width="1000"></center>
+<br> 
 
-
-[Project Repo](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial)
-
-_____
-
-Our group is interested in cash use as fare payment method in the Greater Seattle area.
-
-Using the Seattle Sound Transit Data of October-November 2015, we will try to answer the following questions:
-1) Are cash payments still have a big stake in transit fare types among riders in Seattle?
-2) What type of fare is the most common given different purpose of trips?
-3).....
-
-1. [Data Cleaning](#part1)
-
-2. [Question 1:Is cash still used as payment for transit?](#part2) 
-
-3. [Question 2: Who is using cash?](#part3)
-
-4. [Question 3: What's the impact of explanatory variables on cash usage?](#part4)
-
-5. [Question 4: Finding & Conclusion](#part5)
+<p style="font-size: 130%;">
+Produced by <b>'Data Wizards' Group</b>: <br> <i>Haotian Bu, Aishe Memetova, Jon White, Vitalii Zakhozhyi</i>
+</p>
 
 _____
+<a id='Contents'></a>
 
-<a id='part1'></a>
+<p style="text-align: left; font-size: 175%;"><b>
+Contents:
+</b></p>
 
-#Data Cleaning Part
+1. [Introduction](#part1)
+
+2. [Data Pre-processing](#part2)
+
+3. [Question 1: Are cash payments still have a big stake in transit fare types among riders in Seattle?](#part3) 
+
+4. [Question 2: Who is using cash?](#part4)
+
+5. [Question 3: What's the effects of explanatory variables have on cash usage?](#part5)
+
+6. [Finding & Conclusion](#part6)
+
+_____
+<a id='Introduction'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Introduction and Data Summary
+</b></p>
+
+**Introduction**
+
+Our group is interested in exploring the cash use as transit fare payment method in the Greater Seattle area.
+
+The research is drawn from the assumption that the paying transit fare in cash decreases the efficiency of the transportation system. Cash is not efficient as payment method for both riders and transport service providers. From the riders' perspective, everytime the rider uses cash, they need to have exact amount of money to pay at the entrance, which definitely adds some complexity for some riders. From the service provider's perspetive, using cash increases the wait time and can cause delays in the schedule.     
+
+Sound transit requested this research to find out to what extent cash is still used in the Greater Seattle area. They would be also interested what population will be more likely to use cash for transit fare payment.
+
+<br>
+
+**Research Question**
+
+The main research question is the following:
+
+<p style="text-align: left; font-size: 130%;"><b>
+Whether cash has a big stake in transit fare payment methods among riders in the Greater Seattle area and if so, who are most likely to pay transit fare in cash?
+</b></p>
+
+<br>
+
+**Data**
+
+The data for this project comes from Sound Transit’s [“2015 Onboard Survey”](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/raw/master/OriginalData.csv), a survey conduct on the LINK light rail and Sound Transit busses; however, we narrowed down the data set to looking exclusively at LINK riders. The survey asked riders a variety of questions about their trip details and personal details (time of day of trip, purpose of trip, what mode of travel the rider used to get to public transit, the number of vehicles owned by the rider’s household, languages spoken in household, etc.). One of our group members had obtained this data from Sound Transit for a previous academic project and received approval from them to use it again for this project. 
+
+The full original dataset contains 134 variables and 3398 observations. 
+
+Our variable of interest is fare type (named as "faretype"), which means what method of payment was used by a rider to pay a transit fare. Later, we transform this variable into the dummy variable with the values (Cash/Not Cash), which we further use as the dependent variable for the regressin analysis to assess the impact of chosen explanatory variables on the likelihood of using cash as the transit fare payment method.
+
+The independent variables we used for the research include:
+
+* Purpose of the trip ("purpose")
+* Household Income ("income")
+* Vehicle in the household ("vehicle")
+* Number of trips made on any transit route in the region in the last month  ("number_of_trips")
+
+The dataset has a lot of missing values. For the purpose of this research, we drop the whole observation if there is a missing value in one of the variables of interests.
+
+<br>
+[Go back to the table of contents](#Contents)
+<br>
+
+
+_____
+<a id='part2'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Data Pre-processing
+</b></p>
+
 
 First we need to call the libraries to be able to use the packages 
 
@@ -46,18 +106,24 @@ linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visu
 str(linkdata)
 ```
 
+Some varable manes used in the original data set are not clear and easy to use. Changing the names of some explanatory variables
+
 ```{r}
 #change names of explanatory variables
 linkdata <- rename(linkdata,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean', "income"="hhincome")
 
+```
+Generally looking at the data, we observed a lot of missing data (noted as #NULL). Before getting rid of the observations with the missing values, we are checking the unique values of every variable of interest.
+
+```{r}
 unique(linkdata$faretype)
 ```
+
 We noticed "False" here, need to change it to "Other".
 ```{r}
 linkdata <- linkdata %>% 
   mutate(faretype = recode(faretype, 'FALSE' = "Other"))
 ```
-
 
 ```{r purpose}
 unique(linkdata$purpose)
@@ -66,6 +132,8 @@ unique(linkdata$purpose)
 ```{r income}
 unique(linkdata$income)
 ```
+
+We noticed that some values of income are not consistent. Therefore, we unify the format of the values by recoding them. Additionally, we regrouping income levels to 4 groups: lowest, medium-low, medium-high, and highest income.
 
 ```{r clean income name}
 #the category of income need some work
@@ -93,7 +161,7 @@ unique(linkdata$vehicle)
 ```{r number of trips}
 unique(linkdata$number_of_trips)
 ```
-
+Almost all the variables have some observations with the missing data, so for cleaning the data we drop those observations and create a new dataset.
 
 ```{r get ride of missing values, warning=FALSE, message=FALSE}
 mydata1 <- linkdata %>%
@@ -104,6 +172,7 @@ mydata1 <- linkdata %>%
   filter(number_of_trips != "#NULL!")
 ```
 
+The format of some variables needs to be changed.
 ```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
 # these variable are all characters, we need to transform, some to numeric, some to factor
 mydata1$vehicle <- as.numeric(mydata1$vehicle)
@@ -131,19 +200,33 @@ mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)#-1
 head(mydata2,5)
 # transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
 ```
-Format of variables are right, we are good to go!
+After the cleaning and pre-processing of the data, we got the subset with 6 variables of interest and 778 completed observations.
+
+```{r}
+str(mydata2)
+```
+
+Format of variables are right, we are good to go! Saving the preprocessed dataset as .csv file for futher analysis.
 
 ```{r export dataset}
 write.csv(mydata2, file = "FinalData.csv")
 ```
+<br>
+[Go back to the table of contents](#Contents)
+<br>
 
+_____
+<a id='part3'></a>
 
-<a id='part2'></a>
+<p style="text-align: center; font-size: 175%;"><b>
+Question 1: Are cash payments still have a big stake in transit fare types among riders in Seattle? 
+</b></p>
 
-#Question 1: Is cash still used as payment for transit? 
-**Finalizing the data frame for univariable ggplot**
+Lets start our analysis with the discussion of the use o different methods of transit fare payment. The first question we need to answer is to what extent cash is being used as the method to pay transit fare.
 
-We will need to separate data we are interested to analyze (subsetting the data), and calculate the frequences
+To answer this question, we can build a univariate plot, showing the proportions of use of certain types of payment methods.
+
+To build plots, we will use ggplot2 package. This packege will build plots based on data frames. So before building the plot, we need to create the data frame of fare type frequences.
 
 ```{r}
 absol_ft=table(mydata2$faretype, exclude = 'nothing')
@@ -158,7 +241,7 @@ ft_freq_df <- ft_freq_df[order(ft_freq_df$pct),]
 ft_freq_df
 ```
 
-Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash. 
+Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash.
 ```{r barplot for faretype}
 #ifelse() command use the same order as it looks in dataframe excute 
 #cols <- ifelse(ft_freq_df$faretype == "Cash", "red","gray50")
@@ -192,14 +275,19 @@ ft_plot5 = ft_plot4 + theme(panel.background = element_rect(fill = "white", colo
 ft_plot5
 ```
 
+From the plot, we can see that almost 5% of the population were using cash to pay transit fare. Generally speaking, it is not a big percentage. For example, the percent of different types of ORCA cards/payments varies from 1.54% (ORCA day pass) to 57.5% (ORCA as pass). In total, ORCA payment were almost 90 % of all payments.
 
-<a id='part3'></a>
+If the goal is to reduce the payments with cash, current stake of 5% seems like a good result. There is still a room for improvement. Therefore, It is interesting to know who are those people who still use cash, what are their income, what purposes of their trips, etc.
+
+
+_____
+<a id='part4'></a>
 
 #Question 2: Who is using cash?
 
 Now, we will try to answer what type of fare is the most common given different purpose of trips and different income groups.
 
-**Cleaning the data and creating the proportion table for faretype VS. purpose**
+Cleaning the data and creating the proportion table for faretype VS. Purpose
 
 We will first need to clean the data so that there are no missing values
 
@@ -251,6 +339,9 @@ bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
                       axis.title.x = element_text(size = 11, hjust = 0.5, vjust = -1.25))
 bars6
 ```
+As we can see from the barplot, cash is more likely to be used for non-home based trips and for home based non-work trips. It makes sense, given the fact that people can use cash for one-time trip or they are not living in the area.
+
+Lets do the same with the income variable.
 
 **Cleaning the data and creating the proportion table for faretype VS. Income**
 ```{r}
@@ -292,17 +383,25 @@ bars6 = bars5 + theme(axis.text.y = element_text(size=8, angle = 30),
 bars6
 ```
 
+<br>
+[Go back to the table of contents](#Contents)
+<br>
 
-<a id='part4'></a>
+_____
+<a id='part5'></a>
 
-#Question 3: What's the impact of explanatory variables on cash usage?
+#Question 3: What's the effects of explanatory variables have on cash usage?
 
-In this section, we will explore the realationship among the probability of using cash for this trip, whether people have vehicles, the purpose of this trip, and frequency of using public transportation. 
+Next step is assessing the impact of explanatory variables on cash usage.
+
+In this section, we will explore the realationship among the probability of using cash for this trip, whether people have vehicles, the purpose of this trip, and frequency of using public transportation.
+
+Given our variables and theory, the methodology we will use is the logistical regression.
 
 
 **Doing Regression with logit model** 
 
-Here we use logit model since our dependent variable is a binary variable. Our reference group is people who has lowest income, whose purpose of this trip is home-based non-work trip and don't have vehicles at home.
+Our reference group is people who has lowest income, whose purpose of this trip is home-based non-work trip and don't have vehicles at home.
 ```{r set the reference group}
 mydata2 <- within(mydata2, income <- relevel(income, ref = "lowest"))
 mydata2 <- within(mydata2, purpose <- relevel(purpose, ref = "Home Based Non-Work Trip"))
@@ -344,14 +443,23 @@ dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype
   theme_bw()
 ```
 
-From the plot above, we can see that compared with reference group, people in the highest income group are less likely to use cash, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
+<br>
+[Go back to the table of contents](#Contents)
+<br>
+
+
+_____
+<a id='part6'></a>
+
+<p style="text-align: center; font-size: 175%;"><b>
+Findings & Conclusion
+</b></p>
+
+From our regression, we can see that compared with reference group, people in the highest income group are less likely to use cash to pay transit fees, people whose purpose is home based work trip have less probability using cash, while people whose purpose is non-home based trip is more likely to use cash.
 The more trips people have in each month, the less likelihood people would use cash. However, the difference on cash usage between people who have vehicles in home and people who don't is not significant. 
+<br>
+[Go back to top of the page](#Top)
 
+[Go back to the table of contents](#Contents)
 
-
-
-
-
-<a id='part5'></a>
-
-#Question 4: Finding & Conclusion
+[Go to the Project Repo](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial)
