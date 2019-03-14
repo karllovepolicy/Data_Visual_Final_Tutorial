@@ -631,21 +631,9 @@ summary(mylogit4)</code></pre>
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
 <p><strong>Comparing four models</strong></p>
-<pre class="r"><code>library(cowplot)</code></pre>
-<pre><code>## Warning: package 'cowplot' was built under R version 3.5.3</code></pre>
-<pre><code>## 
-## Attaching package: 'cowplot'</code></pre>
-<pre><code>## The following object is masked from 'package:ggplot2':
-## 
-##     ggsave</code></pre>
-<pre class="r"><code>library(gridExtra)</code></pre>
-<pre><code>## Warning: package 'gridExtra' was built under R version 3.5.3</code></pre>
-<pre><code>## 
-## Attaching package: 'gridExtra'</code></pre>
-<pre><code>## The following object is masked from 'package:dplyr':
-## 
-##     combine</code></pre>
-<pre class="r"><code>allModels=rbind(model1, model2, model3)
+<pre class="r"><code>library(cowplot)
+library(gridExtra)
+allModels=rbind(model1, model2, model3)
 
 
 dwplot1&lt;-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = &quot;grey60&quot;, linetype = 2)) + 

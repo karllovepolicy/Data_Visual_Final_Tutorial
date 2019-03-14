@@ -439,7 +439,7 @@ summary(mylogit4)
 
 **Comparing four models**
 
-```{r compare different models}
+```{r compare different models, message=FALSE, warning=FALSE}
 library(cowplot)
 library(gridExtra)
 allModels=rbind(model1, model2, model3)
