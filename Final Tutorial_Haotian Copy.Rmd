@@ -448,7 +448,7 @@ allModels=rbind(model1, model2, model3)
 dwplot1<-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
   xlab("Coefficient Estimate") + 
   ylab("") +
-  ggtitle("Predicting probability of using cash") +
+  ggtitle("Model 1 & 2 & 3: Estimation of coefficents") +
   theme(axis.text.y = element_text(size=12, angle = 0),
         axis.text.x = element_text(size=12),
         plot.title = element_text(size = 14, hjust = 0.5),
@@ -459,7 +459,7 @@ dwplot1<-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60",
 dwplot2<-dwplot(model4, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
   xlab("Coefficient Estimate") + 
   ylab("") +
-  ggtitle("Predicting probability of using cash") +
+  ggtitle("Model 4: Estimation of coefficents") +
   theme(axis.text.y = element_text(size=12, angle = 0),
         axis.text.x = element_text(size=12),
         plot.title = element_text(size = 14, hjust = 0.5),
