@@ -270,7 +270,7 @@ ft_plot4 = ft_plot3 + geom_text(aes(y = pct,
                                 size = 5)
 ft_plot5 = ft_plot4 + theme(panel.background = element_rect(fill = "white", color = "black"),
                             legend.position = "none",
-                            plot.title = element_text(size = 15, hjust = 0.5),
+                            plot.title = element_text(size = 20, hjust = 0.5),
                             plot.caption = element_text(hjust = 1, vjust = -1.2),
                             axis.text.x  = element_text(size=15),
                             axis.text.y  = element_text(size=15),
@@ -338,10 +338,11 @@ bars5 = bars4 + labs(title='What fare type is the most common given different pu
 bars6 = bars5 + theme(axis.text.y = element_text(size=12, angle = 30),
                       axis.text.x = element_text(size=12),
                       legend.position = "none",
-                      plot.title = element_text(size = 14, hjust = 0.5),
+                      plot.title = element_text(size = 20, hjust = 0.5),
                       plot.caption = element_text(hjust = 1, vjust = -1.2),
                       axis.title.y = element_text(size = 14, hjust = 0.5, vjust = 1.75),
-                      axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25))
+                      axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25),
+                      strip.text = element_text(size = 14))
 bars6
 ```
 
@@ -382,10 +383,11 @@ bars5 = bars4 + labs(title='What fare type is the most common given different in
 bars6 = bars5 + theme(axis.text.y = element_text(size=10, angle = 30),
                       axis.text.x = element_text(size=10),
                       legend.position = "none",
-                      plot.title = element_text(size = 14, hjust = 0.5),
+                      plot.title = element_text(size = 20, hjust = 0.5),
                       plot.caption = element_text(hjust = 1, vjust = -1.2),
                       axis.title.y = element_text(size = 14, hjust = 0.5, vjust = 1.75),
-                      axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25))
+                      axis.title.x = element_text(size = 14, hjust = 0.5, vjust = -1.25),
+                      strip.text = element_text(size = 14))
 bars6
 ```
 
