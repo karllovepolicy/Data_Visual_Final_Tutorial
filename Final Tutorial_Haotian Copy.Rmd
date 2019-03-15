@@ -27,7 +27,7 @@ Contents:
 
 2. [Data Pre-processing](#part2)
 
-3. [Question 1: Are cash payments still have a big stake in transit fare types among riders in Seattle?](#part3) 
+3. [Question 1: To what extent is cash being used as the payment method for LINK transit fare?](#part3) 
 
 4. [Question 2: What type of fare is the most common given different purpose of trips and different income groups?](#part4)
 
@@ -44,11 +44,7 @@ Introduction and Data Summary
 
 **Introduction**
 
-Our group is interested in exploring the cash use as transit fare payment method in the Greater Seattle area.
-
-The research is drawn from the assumption that the paying transit fare in cash decreases the efficiency of the transportation system. Cash is not efficient as payment method for both riders and transport service providers. From the riders' perspective, everytime the rider uses cash, they need to have exact amount of money to pay at the entrance, which definitely adds some complexity for some riders. From the service provider's perspetive, using cash increases the wait time and can cause delays in the schedule.     
-
-Sound transit requested this research to find out to what extent cash is still used in the Greater Seattle area. They would be also interested what population will be more likely to use cash for transit fare payment.
+Our group is interested in exploring how frequently cash is used a means of paying for transit fare in the Greater Seattle area. This research project is drawn from the assumption that using cash to pay transit fare is inconvenient for both riders and transport service providers, and decreases the efficiency and speed of the transportation system. From the riders’ perspective, having exact change to pay for fare is inconvenient (especially considering that King County Metro’s Adult Fare is $2.75). From the service provider’s perspective, riders paying with cash increases the wait time and can cause delays in the schedule. Sound Transit requested this research to find out to what extent cash is still used in the Greater Seattle Area. They would also be interested in what populations are more likely to use cash for transit fare payment.
 
 <br>
 
@@ -57,14 +53,14 @@ Sound transit requested this research to find out to what extent cash is still u
 The main research question is the following:
 
 <p style="text-align: left; font-size: 130%;"><b>
-Whether cash has a big stake in transit fare payment methods among riders in the Greater Seattle area and if so, who are most likely to pay transit fare in cash?
+Whether cash has a big stake as a payment method for transit fare amongst LINK riders in the Greater Seattle area. And, if so, who is most likely to pay transit fare with cash?
 </b></p>
 
 <br>
 
 **Data**
 
-The data for this project comes from Sound Transit’s [“2015 Onboard Survey”](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/raw/master/OriginalData.csv), a survey conduct on the LINK light rail and Sound Transit busses; however, we narrowed down the data set to looking exclusively at LINK riders. The survey asked riders a variety of questions about their trip details and personal details (time of day of trip, purpose of trip, what mode of travel the rider used to get to public transit, the number of vehicles owned by the rider’s household, languages spoken in household, etc.). One of our group members had obtained this data from Sound Transit for a previous academic project and received approval from them to use it again for this project. 
+The data for this project comes from Sound Transit’s [“2015 Onboard Survey”](https://github.com/karllovepolicy/Data_Visual_Final_Tutorial/raw/master/OriginalData.csv), a survey conduct on the LINK light rail and Sound Transit busses; however, we narrowed down the data set to looking exclusively at LINK riders. The survey asked riders a variety of questions about their trip details and personal details (time of day of trip, purpose of trip, what mode of travel the rider used to get to public transit, the number of vehicles owned by the rider’s household, languages spoken in household, etc.). One of our group members had obtained this data from Sound Transit for a previous academic project and received approval from them to use it again for this project.
 
 The full original dataset contains 134 variables and 3398 observations. 
 
@@ -95,34 +91,37 @@ Data Pre-processing
 knitr::opts_chunk$set(fig.width=12, fig.height=8) 
 ```
 
-First we need to call the libraries to be able to use the packages 
+First, we need to call the libraries to be able to use the necessary packages:
 
 ```{r load library, results='hide', warning=FALSE, message=FALSE}
 library(ggplot2)
 library(scales)
 library(dplyr)
 ```
-Then we need to call the data we want to analyze. In our case we call the csv file
+
+Then, we need to call the data we want to analyze. In our case we call the csv file “linkdata”:
 
 ```{r import data, results='hide', warning=FALSE, message=FALSE}
 linkdata <- read.csv("https://raw.githubusercontent.com/karllovepolicy/Data_Visual_Final_Tutorial/master/OriginalData.csv", stringsAsFactors=FALSE)
 str(linkdata)
 ```
 
-Some varable manes used in the original data set are not clear and easy to use. Changing the names of some explanatory variables
+Because some variable names from the original data set are not clear and easily interpreted, we change the names of some explanatory variables to something more accessible for a reader:
 
 ```{r}
 #change names of explanatory variables
 linkdata <- rename(linkdata,'number_of_trips'='oneway_all_clean', 'vehicle'='hhveh_clean', "income"="hhincome")
 
 ```
-Generally looking at the data, we observed a lot of missing data (noted as #NULL). Before getting rid of the observations with the missing values, we are checking the unique values of every variable of interest.
+
+There is a lot of missing data (noted as #NULL) across the full dataset. Before getting rid of all of the observations that have missing values, we check the unique values of every variable of interest:
 
 ```{r}
 unique(linkdata$faretype)
 ```
 
-We noticed "False" here, need to change it to "Other".
+We noticed “False” here which, according to Sound Transit’s provided coding guide, indicates the responde “Other”. We need to change “False” to “Other”:
+
 ```{r}
 linkdata <- linkdata %>% 
   mutate(faretype = recode(faretype, 'FALSE' = "Other"))
@@ -136,7 +135,7 @@ unique(linkdata$purpose)
 unique(linkdata$income)
 ```
 
-We noticed that some values of income are not consistent. Therefore, we unify the format of the values by recoding them. Additionally, we regrouping income levels to 4 groups: lowest, medium-low, medium-high, and highest income.
+We noticed that some values of income are not consistently formatted across our full dataset; therefore, we unify the format of the values by recoding them. We also regroup income levels to 4 groups: lowest, medium-low, medium-high, and highest income.
 
 ```{r clean income name}
 #the category of income need some work
@@ -164,7 +163,8 @@ unique(linkdata$vehicle)
 ```{r number of trips}
 unique(linkdata$number_of_trips)
 ```
-Almost all the variables have some observations with the missing data, so for cleaning the data we drop those observations and create a new dataset.
+
+Almost all the variables have some observations with missing data, so we drop those observations and create a new dataset in order to clean the dataset.
 
 ```{r get ride of missing values, warning=FALSE, message=FALSE}
 mydata1 <- linkdata %>%
@@ -175,7 +175,8 @@ mydata1 <- linkdata %>%
   filter(number_of_trips != "#NULL!")
 ```
 
-The format of some variables needs to be changed.
+The format of some variables still needs to be changed.
+
 ```{r multi transform binamiry variable_cash, message=FALSE, warning = FALSE}
 # these variable are all characters, we need to transform, some to numeric, some to factor
 mydata1$vehicle <- as.numeric(mydata1$vehicle)
@@ -203,13 +204,14 @@ mydata2$number_of_trips <- as.numeric(mydata2$number_of_trips)#-1
 head(mydata2,5)
 # transform explanatory varibles from factor to numeric, add "-1" in command because Factors in R are represented internally as integers and the first factor is 1.
 ```
-After the cleaning and pre-processing of the data, we got the subset with 6 variables of interest and 778 completed observations.
+
+With the cleaning and pre-processing of the data complete, we are left with a subset of: 6 variables of interest and 778 completed observations.
 
 ```{r}
 str(mydata2)
 ```
 
-Format of variables are right, we are good to go! Saving the preprocessed dataset as .csv file for futher analysis.
+Now that we have a cleaned data subset with desired formatting, we save this subset as a “.csv file” in order to use it for further analysis.
 
 ```{r export dataset}
 write.csv(mydata2, file = "FinalData.csv")
@@ -222,14 +224,14 @@ _____
 <a id='part3'></a>
 
 <p style="text-align: center; font-size: 175%;"><b>
-Question 1: Are cash payments still have a big stake in transit fare types among riders in Seattle? 
+Question 1: To what extent is cash being used as the payment method for LINK transit fare? 
 </b></p>
 
-Lets start our analysis with the discussion of the use o different methods of transit fare payment. The first question we need to answer is to what extent cash is being used as the method to pay transit fare.
+We start our analysis by discussing how frequently different payment methods of LINK transit fare are used. The first question we need to answer is “to what extent cash is cash being used as the payment method for LINK transit fare?”
 
-To answer this question, we can build a univariate plot, showing the proportions of use of certain types of payment methods.
+To answer this question, we can build a univariate plot, showing the proportions of use of different payment methods.
 
-To build plots, we will use ggplot2 package. This packege will build plots based on data frames. So before building the plot, we need to create the data frame of fare type frequences.
+We will use the “ggplot2” package to build our plots. This package builds plots using “data frames” so, before building the plot, we need to create the data frame of fare type frequencies:
 
 ```{r}
 absol_ft=table(mydata2$faretype, exclude = 'nothing')
@@ -244,7 +246,8 @@ ft_freq_df <- ft_freq_df[order(ft_freq_df$pct),]
 ft_freq_df
 ```
 
-Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the red color for the bar which represents cash.
+Now we can build a bar plot to visualize how frequently each of the payment methods is used. Since our primary focus is cash, we want to highlight it by using the green color for the bar that represents “cash”.
+
 ```{r barplot for faretype}
 
 
@@ -276,9 +279,9 @@ ft_plot5 = ft_plot4 + theme(panel.background = element_rect(fill = "white", colo
 ft_plot5
 ```
 
-From the plot, we can see that almost 5% of the population were using cash to pay transit fare. Generally speaking, it is not a big percentage. For example, the percent of different types of ORCA cards/payments varies from 1.54% (ORCA day pass) to 57.5% (ORCA as pass). In total, ORCA payment were almost 90 % of all payments.
+From the plot, we can see that almost 5% of the population were using cash to pay transit fare to ride LINK in 2015. Generally speaking, this is not a big percentage of the LINK ridership population. In comparison, the percentage for use of different types of ORCA cards/payments varies from 1.54% (ORCA day pass) to 57.5% (ORCA as pass). In total, the various forms of ORCA payment methods represented almost 90% of all payment methods used.
 
-If the goal is to reduce the payments with cash, current stake of 5% seems like a good result. There is still a room for improvement. Therefore, It is interesting to know who are those people who still use cash, what are their income, what purposes of their trips, etc.
+If the goal is to reduce the payments with cash, the current stake of 5% seems like a good result. However, there is still room for improvement. Therefore, it is interesting to know which people are most likely to use cash, what their income levels are likely to be, what  their trip are, etc.
 
 
 _____
@@ -292,7 +295,7 @@ Now, we will try to answer what type of fare is the most common given different 
 
 Cleaning the data and creating the proportion table for faretype VS. Purpose
 
-We will first need to clean the data so that there are no missing values
+We will first need to clean the data so that there are no missing values.
 
 ```{r prepare frequency table faretype VS.purpose}
 FarePurpose=table(mydata2$faretype, mydata2$purpose)%>% 
@@ -439,7 +442,7 @@ summary(mylogit4)
 
 **Comparing four models**
 
-```{r compare different models}
+```{r compare different models, message=FALSE, warning=FALSE}
 library(cowplot)
 library(gridExtra)
 allModels=rbind(model1, model2, model3)
@@ -448,7 +451,7 @@ allModels=rbind(model1, model2, model3)
 dwplot1<-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
   xlab("Coefficient Estimate") + 
   ylab("") +
-  ggtitle("Predicting probability of using cash") +
+  ggtitle("Model 1 & 2 & 3: Estimation of coefficents") +
   theme(axis.text.y = element_text(size=12, angle = 0),
         axis.text.x = element_text(size=12),
         plot.title = element_text(size = 14, hjust = 0.5),
@@ -459,7 +462,7 @@ dwplot1<-dwplot(allModels, vline = geom_vline(xintercept = 0, colour = "grey60",
 dwplot2<-dwplot(model4, vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) + 
   xlab("Coefficient Estimate") + 
   ylab("") +
-  ggtitle("Predicting probability of using cash") +
+  ggtitle("Model 4: Estimation of coefficents") +
   theme(axis.text.y = element_text(size=12, angle = 0),
         axis.text.x = element_text(size=12),
         plot.title = element_text(size = 14, hjust = 0.5),
