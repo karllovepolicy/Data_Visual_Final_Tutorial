@@ -46,7 +46,7 @@ Contents:
 
 5. [Question 3: What's the effects of explanatory variables have on cash usage?](#part5)
 
-6. [Finding & Conclusion](#part6)
+6. [Findings & Conclusion](#part6)
 
 _____
 <a id='part1'></a>
